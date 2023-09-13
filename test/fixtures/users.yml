@@ -6,6 +6,7 @@ one:
   email: MyString
   password_digest: MyString
   is_admin: false
+  status: MyString
 
 two:
   fname: MyString
@@ -13,3 +14,4 @@ two:
   email: MyString
   password_digest: MyString
   is_admin: false
+  status: MyString

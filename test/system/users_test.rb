@@ -19,6 +19,7 @@ class UsersTest < ApplicationSystemTestCase
     check "Is admin" if @user.is_admin
     fill_in "Lname", with: @user.lname
     fill_in "Password digest", with: @user.password_digest
+    fill_in "Status", with: @user.status
     click_on "Create User"
 
     assert_text "User was successfully created"
@@ -34,6 +35,7 @@ class UsersTest < ApplicationSystemTestCase
     check "Is admin" if @user.is_admin
     fill_in "Lname", with: @user.lname
     fill_in "Password digest", with: @user.password_digest
+    fill_in "Status", with: @user.status
     click_on "Update User"
 
     assert_text "User was successfully updated"
