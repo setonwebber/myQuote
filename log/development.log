@@ -1,0 +1,20 @@
+Started GET "/" for 127.0.0.1 at 2023-09-13 13:35:04 +0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.7.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.6ms | Allocations: 633)
+Completed 200 OK in 85ms (Views: 24.7ms | ActiveRecord: 0.0ms | Allocations: 7368)
+
+
+Started GET "/" for 127.0.0.1 at 2023-09-13 13:38:38 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 295)
+  Rendered layout layouts/application.html.erb (Duration: 696.2ms | Allocations: 85946)
+Completed 200 OK in 731ms (Views: 701.4ms | ActiveRecord: 0.0ms | Allocations: 89869)
+
+
+Started GET "/about" for 127.0.0.1 at 2023-09-13 13:38:45 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/about"):
+  
