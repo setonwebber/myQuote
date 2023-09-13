@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  lname: MyString
+  b_year: 2023-09-13
+  d_year: 2023-09-13
+  biography: MyText
+
+two:
+  fname: MyString
+  lname: MyString
+  b_year: 2023-09-13
+  d_year: 2023-09-13
+  biography: MyText
