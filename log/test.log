@@ -1,0 +1,964 @@
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "categories"[0m
+  [1m[35m (35.9ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "category_name" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "philosophers"[0m
+  [1m[35m (21.5ms)[0m  [1m[35mCREATE TABLE "philosophers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar NOT NULL, "lname" varchar NOT NULL, "b_year" date NOT NULL, "d_year" date, "biography" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "quote_categories"[0m
+  [1m[35m (23.0ms)[0m  [1m[35mCREATE TABLE "quote_categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "quote_id" integer NOT NULL, "category_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (22.0ms)[0m  [1m[35mCREATE INDEX "index_quote_categories_on_category_id" ON "quote_categories" ("category_id")[0m
+  [1m[35m (25.4ms)[0m  [1m[35mCREATE INDEX "index_quote_categories_on_quote_id" ON "quote_categories" ("quote_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "quotes"[0m
+  [1m[35m (21.9ms)[0m  [1m[35mCREATE TABLE "quotes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "pubyear" date NOT NULL, "quotetext" text NOT NULL, "is_public" boolean DEFAULT 0, "user_id" integer NOT NULL, "philosopher_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (21.2ms)[0m  [1m[35mCREATE INDEX "index_quotes_on_philosopher_id" ON "quotes" ("philosopher_id")[0m
+  [1m[35m (20.5ms)[0m  [1m[35mCREATE INDEX "index_quotes_on_user_id" ON "quotes" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (25.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar NOT NULL, "lname" varchar NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "is_admin" boolean DEFAULT 0, "status" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (21.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquote_categories" ("id" integer NOT NULL PRIMARY KEY, "quote_id" integer NOT NULL, "category_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquote_categories_on_quote_id" ON "aquote_categories" ("quote_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquote_categories_on_category_id" ON "aquote_categories" ("category_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aquote_categories" ("id","quote_id","category_id","created_at","updated_at")
+                     SELECT "id","quote_id","category_id","created_at","updated_at" FROM "quote_categories"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "quote_categories"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "quote_categories" ("id" integer NOT NULL PRIMARY KEY, "quote_id" integer NOT NULL, "category_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2f1b48a620"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quote_categories_on_category_id" ON "quote_categories" ("category_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quote_categories_on_quote_id" ON "quote_categories" ("quote_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "quote_categories" ("id","quote_id","category_id","created_at","updated_at")
+                     SELECT "id","quote_id","category_id","created_at","updated_at" FROM "aquote_categories"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aquote_categories"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (17.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquote_categories" ("id" integer NOT NULL PRIMARY KEY, "quote_id" integer NOT NULL, "category_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquote_categories_on_quote_id" ON "aquote_categories" ("quote_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquote_categories_on_category_id" ON "aquote_categories" ("category_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aquote_categories" ("id","quote_id","category_id","created_at","updated_at")
+                     SELECT "id","quote_id","category_id","created_at","updated_at" FROM "quote_categories"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "quote_categories"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "quote_categories" ("id" integer NOT NULL PRIMARY KEY, "quote_id" integer NOT NULL, "category_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2f1b48a620"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+, CONSTRAINT "fk_rails_c34a150410"
+FOREIGN KEY ("quote_id")
+  REFERENCES "quotes" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quote_categories_on_category_id" ON "quote_categories" ("category_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quote_categories_on_quote_id" ON "quote_categories" ("quote_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "quote_categories" ("id","quote_id","category_id","created_at","updated_at")
+                     SELECT "id","quote_id","category_id","created_at","updated_at" FROM "aquote_categories"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aquote_categories"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (17.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquotes" ("id" integer NOT NULL PRIMARY KEY, "pubyear" date NOT NULL, "quotetext" text NOT NULL, "is_public" boolean DEFAULT 0, "user_id" integer NOT NULL, "philosopher_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquotes_on_user_id" ON "aquotes" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquotes_on_philosopher_id" ON "aquotes" ("philosopher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aquotes" ("id","pubyear","quotetext","is_public","user_id","philosopher_id","created_at","updated_at")
+                     SELECT "id","pubyear","quotetext","is_public","user_id","philosopher_id","created_at","updated_at" FROM "quotes"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "quotes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "quotes" ("id" integer NOT NULL PRIMARY KEY, "pubyear" date NOT NULL, "quotetext" text NOT NULL, "is_public" boolean DEFAULT 0, "user_id" integer NOT NULL, "philosopher_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_81116b59fc"
+FOREIGN KEY ("philosopher_id")
+  REFERENCES "philosophers" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quotes_on_philosopher_id" ON "quotes" ("philosopher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quotes_on_user_id" ON "quotes" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "quotes" ("id","pubyear","quotetext","is_public","user_id","philosopher_id","created_at","updated_at")
+                     SELECT "id","pubyear","quotetext","is_public","user_id","philosopher_id","created_at","updated_at" FROM "aquotes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aquotes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (17.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquotes" ("id" integer NOT NULL PRIMARY KEY, "pubyear" date NOT NULL, "quotetext" text NOT NULL, "is_public" boolean DEFAULT 0, "user_id" integer NOT NULL, "philosopher_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquotes_on_user_id" ON "aquotes" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquotes_on_philosopher_id" ON "aquotes" ("philosopher_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aquotes" ("id","pubyear","quotetext","is_public","user_id","philosopher_id","created_at","updated_at")
+                     SELECT "id","pubyear","quotetext","is_public","user_id","philosopher_id","created_at","updated_at" FROM "quotes"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "quotes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "quotes" ("id" integer NOT NULL PRIMARY KEY, "pubyear" date NOT NULL, "quotetext" text NOT NULL, "is_public" boolean DEFAULT 0, "user_id" integer NOT NULL, "philosopher_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_81116b59fc"
+FOREIGN KEY ("philosopher_id")
+  REFERENCES "philosophers" ("id")
+, CONSTRAINT "fk_rails_02b555fb4d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quotes_on_philosopher_id" ON "quotes" ("philosopher_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_quotes_on_user_id" ON "quotes" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "quotes" ("id","pubyear","quotetext","is_public","user_id","philosopher_id","created_at","updated_at")
+                     SELECT "id","pubyear","quotetext","is_public","user_id","philosopher_id","created_at","updated_at" FROM "aquotes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aquotes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (20.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (22.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (18.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20230913084003)[0m
+  [1m[35m (18.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20230913060427),
+(20230913061507),
+(20230913062531),
+(20230913063001);
+
+[0m
+  [1m[35m (20.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2023-10-14 13:29:06.515115"], ["updated_at", "2023-10-14 13:29:06.515115"]]
+  [1m[36mTRANSACTION (23.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "29e2f7138490fb432866aec04fb741f0a5a1858e"], ["created_at", "2023-10-14 13:29:06.543452"], ["updated_at", "2023-10-14 13:29:06.543452"]]
+  [1m[36mTRANSACTION (27.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.6ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:06.785358', '2023-10-14 13:29:06.785358');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:06.785358', '2023-10-14 13:29:06.785358');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:06.787283', '2023-10-14 13:29:06.787283');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:06.787283', '2023-10-14 13:29:06.787283');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:06.788575', '2023-10-14 13:29:06.788575');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:06.788575', '2023-10-14 13:29:06.788575');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:06.790447', '2023-10-14 13:29:06.790447');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:06.790447', '2023-10-14 13:29:06.790447');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:06.792006', '2023-10-14 13:29:06.792006');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:06.792006', '2023-10-14 13:29:06.792006')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.6ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.058993', '2023-10-14 13:29:07.058993');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.058993', '2023-10-14 13:29:07.058993');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.059112', '2023-10-14 13:29:07.059112');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.059112', '2023-10-14 13:29:07.059112');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.059155', '2023-10-14 13:29:07.059155');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.059155', '2023-10-14 13:29:07.059155');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.059224', '2023-10-14 13:29:07.059224');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.059224', '2023-10-14 13:29:07.059224');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.059284', '2023-10-14 13:29:07.059284');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.059284', '2023-10-14 13:29:07.059284')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (4.9ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.072371', '2023-10-14 13:29:07.072371');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.072371', '2023-10-14 13:29:07.072371');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.072460', '2023-10-14 13:29:07.072460');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.072460', '2023-10-14 13:29:07.072460');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.072490', '2023-10-14 13:29:07.072490');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.072490', '2023-10-14 13:29:07.072490');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.094661', '2023-10-14 13:29:07.094661');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.094661', '2023-10-14 13:29:07.094661');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.094726', '2023-10-14 13:29:07.094726');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.094726', '2023-10-14 13:29:07.094726')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (7.0ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.112133', '2023-10-14 13:29:07.112133');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.112133', '2023-10-14 13:29:07.112133');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.112246', '2023-10-14 13:29:07.112246');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.112246', '2023-10-14 13:29:07.112246');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.112289', '2023-10-14 13:29:07.112289');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.112289', '2023-10-14 13:29:07.112289');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.112354', '2023-10-14 13:29:07.112354');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.112354', '2023-10-14 13:29:07.112354');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.112415', '2023-10-14 13:29:07.112415');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.112415', '2023-10-14 13:29:07.112415')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (4.5ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.146961', '2023-10-14 13:29:07.146961');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.146961', '2023-10-14 13:29:07.146961');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.147592', '2023-10-14 13:29:07.147592');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.147592', '2023-10-14 13:29:07.147592');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.147638', '2023-10-14 13:29:07.147638');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.147638', '2023-10-14 13:29:07.147638');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.147701', '2023-10-14 13:29:07.147701');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.147701', '2023-10-14 13:29:07.147701');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.147760', '2023-10-14 13:29:07.147760');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.147760', '2023-10-14 13:29:07.147760')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.160760', '2023-10-14 13:29:07.160760');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.160760', '2023-10-14 13:29:07.160760');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.160848', '2023-10-14 13:29:07.160848');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.160848', '2023-10-14 13:29:07.160848');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.160877', '2023-10-14 13:29:07.160877');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.160877', '2023-10-14 13:29:07.160877');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.160924', '2023-10-14 13:29:07.160924');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.160924', '2023-10-14 13:29:07.160924');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.160968', '2023-10-14 13:29:07.160968');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.160968', '2023-10-14 13:29:07.160968')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.7ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (4.4ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.173064', '2023-10-14 13:29:07.173064');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.173064', '2023-10-14 13:29:07.173064');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.173180', '2023-10-14 13:29:07.173180');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.173180', '2023-10-14 13:29:07.173180');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.173225', '2023-10-14 13:29:07.173225');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.173225', '2023-10-14 13:29:07.173225');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.173322', '2023-10-14 13:29:07.173322');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.173322', '2023-10-14 13:29:07.173322');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.173430', '2023-10-14 13:29:07.173430');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.173430', '2023-10-14 13:29:07.173430')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.208778', '2023-10-14 13:29:07.208778');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.208778', '2023-10-14 13:29:07.208778');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.208914', '2023-10-14 13:29:07.208914');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.208914', '2023-10-14 13:29:07.208914');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.208962', '2023-10-14 13:29:07.208962');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.208962', '2023-10-14 13:29:07.208962');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.209066', '2023-10-14 13:29:07.209066');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.209066', '2023-10-14 13:29:07.209066');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.209136', '2023-10-14 13:29:07.209136');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.209136', '2023-10-14 13:29:07.209136')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (2.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (3.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.227225', '2023-10-14 13:29:07.227225');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.227225', '2023-10-14 13:29:07.227225');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.227352', '2023-10-14 13:29:07.227352');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.227352', '2023-10-14 13:29:07.227352');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.227416', '2023-10-14 13:29:07.227416');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.227416', '2023-10-14 13:29:07.227416');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.227499', '2023-10-14 13:29:07.227499');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.227499', '2023-10-14 13:29:07.227499');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.227569', '2023-10-14 13:29:07.227569');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.227569', '2023-10-14 13:29:07.227569')[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (2.5ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (4.6ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.244289', '2023-10-14 13:29:07.244289');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.244289', '2023-10-14 13:29:07.244289');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.244397', '2023-10-14 13:29:07.244397');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.244397', '2023-10-14 13:29:07.244397');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.244439', '2023-10-14 13:29:07.244439');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.244439', '2023-10-14 13:29:07.244439');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.244498', '2023-10-14 13:29:07.244498');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.244498', '2023-10-14 13:29:07.244498');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.244575', '2023-10-14 13:29:07.244575');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.244575', '2023-10-14 13:29:07.244575')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (4.5ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.262894', '2023-10-14 13:29:07.262894');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.262894', '2023-10-14 13:29:07.262894');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.262994', '2023-10-14 13:29:07.262994');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.262994', '2023-10-14 13:29:07.262994');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.263023', '2023-10-14 13:29:07.263023');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.263023', '2023-10-14 13:29:07.263023');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.263077', '2023-10-14 13:29:07.263077');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.263077', '2023-10-14 13:29:07.263077');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.263138', '2023-10-14 13:29:07.263138');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.263138', '2023-10-14 13:29:07.263138')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (5.1ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.283033', '2023-10-14 13:29:07.283033');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.283033', '2023-10-14 13:29:07.283033');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.283155', '2023-10-14 13:29:07.283155');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.283155', '2023-10-14 13:29:07.283155');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.283196', '2023-10-14 13:29:07.283196');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.283196', '2023-10-14 13:29:07.283196');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.283262', '2023-10-14 13:29:07.283262');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.283262', '2023-10-14 13:29:07.283262');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.283335', '2023-10-14 13:29:07.283335');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.283335', '2023-10-14 13:29:07.283335')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (2.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.298146', '2023-10-14 13:29:07.298146');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.298146', '2023-10-14 13:29:07.298146');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.298249', '2023-10-14 13:29:07.298249');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.298249', '2023-10-14 13:29:07.298249');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.298289', '2023-10-14 13:29:07.298289');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.298289', '2023-10-14 13:29:07.298289');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.298350', '2023-10-14 13:29:07.298350');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.298350', '2023-10-14 13:29:07.298350');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.298410', '2023-10-14 13:29:07.298410');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.298410', '2023-10-14 13:29:07.298410')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (5.0ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.315947', '2023-10-14 13:29:07.315947');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.315947', '2023-10-14 13:29:07.315947');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.316049', '2023-10-14 13:29:07.316049');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.316049', '2023-10-14 13:29:07.316049');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.316091', '2023-10-14 13:29:07.316091');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.316091', '2023-10-14 13:29:07.316091');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.316151', '2023-10-14 13:29:07.316151');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.316151', '2023-10-14 13:29:07.316151');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.316217', '2023-10-14 13:29:07.316217');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.316217', '2023-10-14 13:29:07.316217')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (4.4ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.331894', '2023-10-14 13:29:07.331894');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.331894', '2023-10-14 13:29:07.331894');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.331990', '2023-10-14 13:29:07.331990');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.331990', '2023-10-14 13:29:07.331990');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.332027', '2023-10-14 13:29:07.332027');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.332027', '2023-10-14 13:29:07.332027');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.332084', '2023-10-14 13:29:07.332084');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.332084', '2023-10-14 13:29:07.332084');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.332142', '2023-10-14 13:29:07.332142');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.332142', '2023-10-14 13:29:07.332142')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (4.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.346503', '2023-10-14 13:29:07.346503');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.346503', '2023-10-14 13:29:07.346503');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.346619', '2023-10-14 13:29:07.346619');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.346619', '2023-10-14 13:29:07.346619');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.346666', '2023-10-14 13:29:07.346666');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.346666', '2023-10-14 13:29:07.346666');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.346737', '2023-10-14 13:29:07.346737');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.346737', '2023-10-14 13:29:07.346737');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.346801', '2023-10-14 13:29:07.346801');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.346801', '2023-10-14 13:29:07.346801')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (5.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.383365', '2023-10-14 13:29:07.383365');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.383365', '2023-10-14 13:29:07.383365');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.383479', '2023-10-14 13:29:07.383479');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.383479', '2023-10-14 13:29:07.383479');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.383522', '2023-10-14 13:29:07.383522');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.383522', '2023-10-14 13:29:07.383522');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.383587', '2023-10-14 13:29:07.383587');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.383587', '2023-10-14 13:29:07.383587');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.383656', '2023-10-14 13:29:07.383656');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.383656', '2023-10-14 13:29:07.383656')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.478521', '2023-10-14 13:29:07.478521');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.478521', '2023-10-14 13:29:07.478521');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.478638', '2023-10-14 13:29:07.478638');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.478638', '2023-10-14 13:29:07.478638');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.478684', '2023-10-14 13:29:07.478684');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.478684', '2023-10-14 13:29:07.478684');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.478754', '2023-10-14 13:29:07.478754');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.478754', '2023-10-14 13:29:07.478754');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.478825', '2023-10-14 13:29:07.478825');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.478825', '2023-10-14 13:29:07.478825')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.518887', '2023-10-14 13:29:07.518887');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.518887', '2023-10-14 13:29:07.518887');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.519005', '2023-10-14 13:29:07.519005');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.519005', '2023-10-14 13:29:07.519005');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.519049', '2023-10-14 13:29:07.519049');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.519049', '2023-10-14 13:29:07.519049');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.519116', '2023-10-14 13:29:07.519116');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.519116', '2023-10-14 13:29:07.519116');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.519184', '2023-10-14 13:29:07.519184');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.519184', '2023-10-14 13:29:07.519184')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (2.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.536793', '2023-10-14 13:29:07.536793');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.536793', '2023-10-14 13:29:07.536793');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.536908', '2023-10-14 13:29:07.536908');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.536908', '2023-10-14 13:29:07.536908');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.536951', '2023-10-14 13:29:07.536951');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.536951', '2023-10-14 13:29:07.536951');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.537070', '2023-10-14 13:29:07.537070');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.537070', '2023-10-14 13:29:07.537070');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.537145', '2023-10-14 13:29:07.537145');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.537145', '2023-10-14 13:29:07.537145')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (5.0ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.561597', '2023-10-14 13:29:07.561597');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.561597', '2023-10-14 13:29:07.561597');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.561710', '2023-10-14 13:29:07.561710');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.561710', '2023-10-14 13:29:07.561710');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.561752', '2023-10-14 13:29:07.561752');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.561752', '2023-10-14 13:29:07.561752');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.561823', '2023-10-14 13:29:07.561823');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.561823', '2023-10-14 13:29:07.561823');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.561886', '2023-10-14 13:29:07.561886');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.561886', '2023-10-14 13:29:07.561886')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.579453', '2023-10-14 13:29:07.579453');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.579453', '2023-10-14 13:29:07.579453');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.579546', '2023-10-14 13:29:07.579546');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.579546', '2023-10-14 13:29:07.579546');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.579576', '2023-10-14 13:29:07.579576');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.579576', '2023-10-14 13:29:07.579576');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.579622', '2023-10-14 13:29:07.579622');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.579622', '2023-10-14 13:29:07.579622');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.579664', '2023-10-14 13:29:07.579664');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.579664', '2023-10-14 13:29:07.579664')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.5ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.587893', '2023-10-14 13:29:07.587893');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.587893', '2023-10-14 13:29:07.587893');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.588001', '2023-10-14 13:29:07.588001');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.588001', '2023-10-14 13:29:07.588001');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.588041', '2023-10-14 13:29:07.588041');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.588041', '2023-10-14 13:29:07.588041');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.588105', '2023-10-14 13:29:07.588105');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.588105', '2023-10-14 13:29:07.588105');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.588169', '2023-10-14 13:29:07.588169');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.588169', '2023-10-14 13:29:07.588169')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.942113', '2023-10-14 13:29:07.942113');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.942113', '2023-10-14 13:29:07.942113');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.942233', '2023-10-14 13:29:07.942233');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.942233', '2023-10-14 13:29:07.942233');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.942280', '2023-10-14 13:29:07.942280');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.942280', '2023-10-14 13:29:07.942280');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.942361', '2023-10-14 13:29:07.942361');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.942361', '2023-10-14 13:29:07.942361');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.942428', '2023-10-14 13:29:07.942428');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.942428', '2023-10-14 13:29:07.942428')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.5ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.972338', '2023-10-14 13:29:07.972338');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.972338', '2023-10-14 13:29:07.972338');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.972462', '2023-10-14 13:29:07.972462');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.972462', '2023-10-14 13:29:07.972462');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.972506', '2023-10-14 13:29:07.972506');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.972506', '2023-10-14 13:29:07.972506');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.972567', '2023-10-14 13:29:07.972567');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.972567', '2023-10-14 13:29:07.972567');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.972630', '2023-10-14 13:29:07.972630');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.972630', '2023-10-14 13:29:07.972630')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.1ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:07.993968', '2023-10-14 13:29:07.993968');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:07.993968', '2023-10-14 13:29:07.993968');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.994075', '2023-10-14 13:29:07.994075');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:07.994075', '2023-10-14 13:29:07.994075');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:07.994116', '2023-10-14 13:29:07.994116');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:07.994116', '2023-10-14 13:29:07.994116');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:07.994179', '2023-10-14 13:29:07.994179');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:07.994179', '2023-10-14 13:29:07.994179');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.994237', '2023-10-14 13:29:07.994237');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:07.994237', '2023-10-14 13:29:07.994237')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.1ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:08.015020', '2023-10-14 13:29:08.015020');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:08.015020', '2023-10-14 13:29:08.015020');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.015133', '2023-10-14 13:29:08.015133');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.015133', '2023-10-14 13:29:08.015133');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:08.015173', '2023-10-14 13:29:08.015173');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:08.015173', '2023-10-14 13:29:08.015173');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:08.015238', '2023-10-14 13:29:08.015238');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:08.015238', '2023-10-14 13:29:08.015238');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.015767', '2023-10-14 13:29:08.015767');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.015767', '2023-10-14 13:29:08.015767')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:08.036058', '2023-10-14 13:29:08.036058');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:08.036058', '2023-10-14 13:29:08.036058');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.036146', '2023-10-14 13:29:08.036146');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.036146', '2023-10-14 13:29:08.036146');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:08.036176', '2023-10-14 13:29:08.036176');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:08.036176', '2023-10-14 13:29:08.036176');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:08.036221', '2023-10-14 13:29:08.036221');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:08.036221', '2023-10-14 13:29:08.036221');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.036263', '2023-10-14 13:29:08.036263');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.036263', '2023-10-14 13:29:08.036263')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:08.044153', '2023-10-14 13:29:08.044153');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:08.044153', '2023-10-14 13:29:08.044153');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.044234', '2023-10-14 13:29:08.044234');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.044234', '2023-10-14 13:29:08.044234');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:08.044262', '2023-10-14 13:29:08.044262');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:08.044262', '2023-10-14 13:29:08.044262');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:08.044307', '2023-10-14 13:29:08.044307');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:08.044307', '2023-10-14 13:29:08.044307');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.044348', '2023-10-14 13:29:08.044348');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.044348', '2023-10-14 13:29:08.044348')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.6ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:08.052076', '2023-10-14 13:29:08.052076');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:08.052076', '2023-10-14 13:29:08.052076');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.052181', '2023-10-14 13:29:08.052181');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.052181', '2023-10-14 13:29:08.052181');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:08.052222', '2023-10-14 13:29:08.052222');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:08.052222', '2023-10-14 13:29:08.052222');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:08.052278', '2023-10-14 13:29:08.052278');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:08.052278', '2023-10-14 13:29:08.052278');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.052336', '2023-10-14 13:29:08.052336');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.052336', '2023-10-14 13:29:08.052336')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:08.068607', '2023-10-14 13:29:08.068607');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:08.068607', '2023-10-14 13:29:08.068607');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.068723', '2023-10-14 13:29:08.068723');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.068723', '2023-10-14 13:29:08.068723');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:08.068768', '2023-10-14 13:29:08.068768');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:08.068768', '2023-10-14 13:29:08.068768');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:08.068834', '2023-10-14 13:29:08.068834');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:08.068834', '2023-10-14 13:29:08.068834');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.068898', '2023-10-14 13:29:08.068898');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.068898', '2023-10-14 13:29:08.068898')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:08.079271', '2023-10-14 13:29:08.079271');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:08.079271', '2023-10-14 13:29:08.079271');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.079381', '2023-10-14 13:29:08.079381');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.079381', '2023-10-14 13:29:08.079381');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:08.079417', '2023-10-14 13:29:08.079417');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:08.079417', '2023-10-14 13:29:08.079417');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:08.079479', '2023-10-14 13:29:08.079479');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:08.079479', '2023-10-14 13:29:08.079479');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.079533', '2023-10-14 13:29:08.079533');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.079533', '2023-10-14 13:29:08.079533')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:08.089408', '2023-10-14 13:29:08.089408');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:08.089408', '2023-10-14 13:29:08.089408');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.089529', '2023-10-14 13:29:08.089529');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.089529', '2023-10-14 13:29:08.089529');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:08.089574', '2023-10-14 13:29:08.089574');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:08.089574', '2023-10-14 13:29:08.089574');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:08.089639', '2023-10-14 13:29:08.089639');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:08.089639', '2023-10-14 13:29:08.089639');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.089699', '2023-10-14 13:29:08.089699');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.089699', '2023-10-14 13:29:08.089699')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:08.099414', '2023-10-14 13:29:08.099414');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:08.099414', '2023-10-14 13:29:08.099414');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.099501', '2023-10-14 13:29:08.099501');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.099501', '2023-10-14 13:29:08.099501');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:08.099531', '2023-10-14 13:29:08.099531');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:08.099531', '2023-10-14 13:29:08.099531');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:08.099578', '2023-10-14 13:29:08.099578');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:08.099578', '2023-10-14 13:29:08.099578');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.099622', '2023-10-14 13:29:08.099622');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.099622', '2023-10-14 13:29:08.099622')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:08.131857', '2023-10-14 13:29:08.131857');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:08.131857', '2023-10-14 13:29:08.131857');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.131989', '2023-10-14 13:29:08.131989');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.131989', '2023-10-14 13:29:08.131989');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:08.132033', '2023-10-14 13:29:08.132033');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:08.132033', '2023-10-14 13:29:08.132033');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:08.132094', '2023-10-14 13:29:08.132094');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:08.132094', '2023-10-14 13:29:08.132094');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.132158', '2023-10-14 13:29:08.132158');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.132158', '2023-10-14 13:29:08.132158')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "philosophers";
+DELETE FROM "quote_categories";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2023-10-14 13:29:08.173540', '2023-10-14 13:29:08.173540');
+INSERT INTO "categories" ("id", "category_name", "created_at", "updated_at") VALUES (298486374, 'MyString', '2023-10-14 13:29:08.173540', '2023-10-14 13:29:08.173540');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.173631', '2023-10-14 13:29:08.173631');
+INSERT INTO "philosophers" ("id", "fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', '2023-09-13', '2023-09-13', 'MyText', '2023-10-14 13:29:08.173631', '2023-10-14 13:29:08.173631');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (980190962, 980190962, 980190962, '2023-10-14 13:29:08.173660', '2023-10-14 13:29:08.173660');
+INSERT INTO "quote_categories" ("id", "quote_id", "category_id", "created_at", "updated_at") VALUES (298486374, 298486374, 298486374, '2023-10-14 13:29:08.173660', '2023-10-14 13:29:08.173660');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (980190962, '2023-09-13', 'MyText', 0, 980190962, 980190962, '2023-10-14 13:29:08.173704', '2023-10-14 13:29:08.173704');
+INSERT INTO "quotes" ("id", "pubyear", "quotetext", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (298486374, '2023-09-13', 'MyText', 0, 298486374, 298486374, '2023-10-14 13:29:08.173704', '2023-10-14 13:29:08.173704');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.173746', '2023-10-14 13:29:08.173746');
+INSERT INTO "users" ("id", "fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 0, 'MyString', '2023-10-14 13:29:08.173746', '2023-10-14 13:29:08.173746')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
