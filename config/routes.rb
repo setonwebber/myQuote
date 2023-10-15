@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
+  get '/admin', to: 'home#aindex'
+  get '/userhome', to: 'home#uindex'
+  get '/your-quotes', to: 'home#uquotes'
+  
+  root 'home#index'
+
+
   resources :quote_categories
   resources :categories
   resources :quotes
   resources :philosophers
   resources :users
-  # get 'home/index'
-  root 'home#index'
-  get '/about', to: "about#index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

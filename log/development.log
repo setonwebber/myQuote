@@ -313,3 +313,2925 @@ Searched in:
     21:   </body>
   
 app/views/layouts/application.html.erb:18
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:09:13 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 295)
+  Rendered layout layouts/application.html.erb (Duration: 113.1ms | Allocations: 34548)
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 0.0ms | Allocations: 38489)
+
+
+  
+ActionView::Template::Error (Missing partial home/_layouts.header, application/_layouts.header with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/student/Documents/Assignments/myquote/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/turbo-rails-1.4.0/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actiontext-7.0.7.2/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionmailbox-7.0.7.2/app/views"
+):
+    15: 
+    16:   <body>
+    17:     <div class="container" style="margin-top:20px;">
+    18:     <%= render 'layouts.header' %>
+    19:       <%= yield %>
+    20:     </div>
+    21:   </body>
+  
+app/views/layouts/application.html.erb:18
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:12:55 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 108)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2577)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 3445)
+
+
+Started GET "/about" for 127.0.0.1 at 2023-10-15 17:13:18 +0800
+  
+ActionController::RoutingError (uninitialized constant AboutController):
+  
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:13:23 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 105)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 3687)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms | Allocations: 4438)
+
+
+  
+ActionView::Template::Error (Missing partial home/_layouts.header, application/_layouts.header with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/student/Documents/Assignments/myquote/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/turbo-rails-1.4.0/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actiontext-7.0.7.2/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionmailbox-7.0.7.2/app/views"
+):
+    15: 
+    16:   <body>
+    17:     <div class="container" style="margin-top:20px;">
+    18:       <%= render 'layouts.header' %>
+    19:       <%= yield %>
+    20:     </div>
+    21:   </body>
+  
+app/views/layouts/application.html.erb:18
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:13:45 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 105)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 3684)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 4474)
+
+
+  
+ActionView::Template::Error (Missing partial home/_layouts.header, application/_layouts.header with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/student/Documents/Assignments/myquote/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/turbo-rails-1.4.0/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actiontext-7.0.7.2/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionmailbox-7.0.7.2/app/views"
+):
+    14:   </head>
+    15: 
+    16:   <body>
+    17:   <%= render 'layouts.header' %>
+    18:     <div class="container" style="margin-top:20px;">
+    19:       <%= yield %>
+    20:     </div>
+  
+app/views/layouts/application.html.erb:17
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:15:19 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 12.8ms | Allocations: 105)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 357)
+  Rendered layout layouts/application.html.erb (Duration: 28.6ms | Allocations: 3145)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.0ms | Allocations: 3960)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:15:38 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 92)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2427)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 2684)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:16:55 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 105)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 313)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3104)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 3916)
+
+
+Started GET "/about" for 127.0.0.1 at 2023-10-15 17:16:56 +0800
+  
+ActionController::RoutingError (uninitialized constant AboutController):
+  
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:18:25 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 92)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2433)
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 2690)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:25:02 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 295)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 387)
+  Rendered layout layouts/application.html.erb (Duration: 115.5ms | Allocations: 33648)
+Completed 200 OK in 139ms (Views: 123.4ms | ActiveRecord: 0.0ms | Allocations: 37658)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:25:14 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2436)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 2696)
+
+
+Started GET "/about" for 127.0.0.1 at 2023-10-15 17:25:17 +0800
+  
+ActionController::RoutingError (uninitialized constant AboutController):
+  
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:27:31 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 105)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 313)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 3115)
+Completed 200 OK in 29ms (Views: 24.8ms | ActiveRecord: 0.0ms | Allocations: 3932)
+
+
+Started GET "/quotes/new" for 127.0.0.1 at 2023-10-15 17:27:36 +0800
+Processing by QuotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/new.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 61.3ms | Allocations: 4332)
+  Rendered quotes/new.html.erb within layouts/application (Duration: 63.8ms | Allocations: 4641)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 68.9ms | Allocations: 6973)
+Completed 200 OK in 131ms (Views: 73.8ms | ActiveRecord: 0.5ms | Allocations: 14524)
+
+
+Started GET "/quotes/new" for 127.0.0.1 at 2023-10-15 17:30:23 +0800
+Processing by QuotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/new.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 15.0ms | Allocations: 2163)
+  Rendered quotes/new.html.erb within layouts/application (Duration: 31.5ms | Allocations: 2465)
+  Rendered layouts/_header.html.erb (Duration: 4.3ms | Allocations: 289)
+  Rendered layout layouts/application.html.erb (Duration: 43.2ms | Allocations: 5260)
+Completed 200 OK in 59ms (Views: 57.8ms | ActiveRecord: 0.0ms | Allocations: 6095)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:30:31 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1280)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 1368)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 1929)
+
+
+  
+ActionView::Template::Error (Missing partial quotes/_index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/student/Documents/Assignments/myquote/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/turbo-rails-1.4.0/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actiontext-7.0.7.2/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionmailbox-7.0.7.2/app/views"
+):
+    1: <h1>Welcome to myQuote</h1>
+    2: 
+    3: <div class="container" style="margin-top:20px;">
+    4:     <%= render partial: 'quotes/index' %>
+    5: </div>
+  
+app/views/home/index.html.erb:4
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:31:39 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1227)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 1315)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 2106)
+
+
+  
+ActionView::Template::Error (Missing partial quotes/_index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/student/Documents/Assignments/myquote/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/turbo-rails-1.4.0/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actiontext-7.0.7.2/app/views"
+  * "/home/student/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionmailbox-7.0.7.2/app/views"
+):
+    1: <h1>Welcome to myQuote</h1>
+    2: 
+    3: <div class="container" style="margin-top:20px;">
+    4:     <%= render 'quotes/index' %>
+    5: </div>
+  
+app/views/home/index.html.erb:4
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:33:09 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1357)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1445)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2238)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     5: <h1>Quotes</h1>
+     6: 
+     7: <div id="quotes">
+     8:   <% @quotes.each do |quote| %>
+     9:     <%= render quote %>
+    10:     <p>
+    11:       <%= link_to "Show this quote", quote %>
+  
+app/views/home/index.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:34:14 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 106)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 312)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3120)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 3934)
+
+
+Started GET "/quotes/new" for 127.0.0.1 at 2023-10-15 17:34:22 +0800
+Processing by QuotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/new.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 3.0ms | Allocations: 2178)
+  Rendered quotes/new.html.erb within layouts/application (Duration: 15.4ms | Allocations: 2479)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 4806)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.0ms | Allocations: 5388)
+
+
+Started GET "/quotes/new" for 127.0.0.1 at 2023-10-15 17:35:14 +0800
+Processing by QuotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/new.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 3.5ms | Allocations: 2175)
+  Rendered quotes/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2477)
+  Rendered layouts/_header.html.erb (Duration: 11.5ms | Allocations: 290)
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | Allocations: 5273)
+Completed 200 OK in 29ms (Views: 28.2ms | ActiveRecord: 0.0ms | Allocations: 6105)
+
+
+Started GET "/quotes/new" for 127.0.0.1 at 2023-10-15 17:35:15 +0800
+Processing by QuotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/new.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 2.1ms | Allocations: 1652)
+  Rendered quotes/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1741)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 82)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 4022)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 4303)
+
+
+Started GET "/quotes/quotes/index" for 127.0.0.1 at 2023-10-15 17:35:18 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/quotes/quotes/index"):
+  
+Started GET "/quotes/quotes/index" for 127.0.0.1 at 2023-10-15 17:35:57 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/quotes/quotes/index"):
+  
+Started GET "/quotes/show" for 127.0.0.1 at 2023-10-15 17:36:03 +0800
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/quotes_controller.rb:63:in `set_quote'
+Completed 404 Not Found in 24ms (ActiveRecord: 0.4ms | Allocations: 8552)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Quote with 'id'=show):
+  
+app/controllers/quotes_controller.rb:63:in `set_quote'
+Started GET "/" for 127.0.0.1 at 2023-10-15 17:36:13 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 105)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 313)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3126)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 3898)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:01:57 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/student/Documents/Assignments/myquote/app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+...ients).where(user_id: session [:user_id])
+...                              ^
+):
+  
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:05:22 +0800
+  
+SyntaxError (/home/student/Documents/Assignments/myquote/app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+...:text).where(user_id: session [:user_id])
+...                              ^
+):
+  
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:05:31 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 107)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 14.5ms | Allocations: 6849)
+  Rendered layout layouts/application.html.erb (Duration: 57.5ms | Allocations: 39666)
+Completed 200 OK in 62ms (Views: 58.2ms | ActiveRecord: 0.7ms | Allocations: 41900)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2023-10-15 18:05:35 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 5.3ms | Allocations: 3657)
+  Rendered users/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3966)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.8ms | Allocations: 3393)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 9611)
+Completed 200 OK in 31ms (Views: 22.6ms | ActiveRecord: 0.5ms | Allocations: 15945)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-10-15 18:05:38 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 897)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.2ms | Allocations: 3407)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 6559)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.2ms | Allocations: 7208)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-10-15 18:05:53 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"admin@myquotes.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@myquotes.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 228ms (ActiveRecord: 3.9ms | Allocations: 1717)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-10-15 18:05:53 +0800
+Processing by HomeController#aindex as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/aindex.html.erb within layouts/application
+  Rendered home/aindex.html.erb within layouts/application (Duration: 0.8ms | Allocations: 315)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.3ms | Allocations: 1807)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4294)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 4556)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:06:05 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 966)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 3336)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.1ms | Allocations: 3595)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-10-15 18:06:21 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 378)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:06:21 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.4ms | Allocations: 3388)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 5773)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.2ms | Allocations: 6030)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-10-15 18:06:24 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 585)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.1ms | Allocations: 3379)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 6130)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.2ms | Allocations: 6388)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-10-15 18:06:33 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"vinceb@myemail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "vinceb@myemail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/userhome
+Completed 302 Found in 223ms (ActiveRecord: 0.1ms | Allocations: 896)
+
+
+Started GET "/userhome" for 127.0.0.1 at 2023-10-15 18:06:33 +0800
+Processing by HomeController#uindex as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uindex.html.erb within layouts/application
+  Rendered home/uindex.html.erb within layouts/application (Duration: 0.8ms | Allocations: 341)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 1981)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 4523)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms | Allocations: 4778)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `your_quotes_path' for #<ActionView::Base:0x000000000198e8>):
+    44:             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"aria-expanded="false">User</a>
+    45:             <ul class="dropdown-menu">
+    46:               <%= link_to "My Account", userhome_path, class:"dropdown-item" %>
+    47:               <%= link_to "My Quotes", your_quotes_path, class:"dropdown-item" %>
+    48:               <li><hr class="dropdown-divider"></li>
+    49:               <li><a class="dropdown-item" href="#">Add New Quotes</a></li>
+    50:             </ul>
+  
+app/views/layouts/_header.html.erb:47
+app/views/layouts/application.html.erb:17
+Started GET "/userhome" for 127.0.0.1 at 2023-10-15 18:07:17 +0800
+Processing by HomeController#uindex as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uindex.html.erb within layouts/application
+  Rendered home/uindex.html.erb within layouts/application (Duration: 0.4ms | Allocations: 214)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.5ms | Allocations: 5040)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 18344)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.8ms | Allocations: 18870)
+
+
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 18:07:23 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1128)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1215)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1458)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h3>Your Quotes</h3>
+    2: <hr />
+    3: 
+    4: <% @quotes.each do |quote_categories| %>
+    5:     <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:         <div class="card-body">
+    7:             <h4 class="card-title"><%= quote.text %></h4>
+  
+app/views/home/uquotes.html.erb:4
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 18:10:15 +0800
+  
+SyntaxError (/home/student/Documents/Assignments/myquote/app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+...Quotes.where(user_id: session [:user_id])
+...                              ^
+):
+  
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:10:19 +0800
+  
+SyntaxError (/home/student/Documents/Assignments/myquote/app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+...Quotes.where(user_id: session [:user_id])
+...                              ^
+):
+  
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:11:35 +0800
+  
+SyntaxError (/home/student/Documents/Assignments/myquote/app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+...:text).where(user_id: session [:user_id])
+...                              ^
+):
+  
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:11:50 +0800
+  
+SyntaxError (/home/student/Documents/Assignments/myquote/app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+...:text).where(user_id: session [:user_id])
+...                              ^
+):
+  
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:16:41 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 108)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 8.4ms | Allocations: 5545)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 19198)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.9ms | Allocations: 20102)
+
+
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 18:16:44 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1165)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1253)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1498)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h3>Your Quotes</h3>
+<hr />
+
+<% if @quotes.empty?
+
+<% else %>
+    <% @quotes.each do |quote_categories| %>
+    <div class="card bg-body-tertiary" style="margin-bottom:10px">
+        <div class="card-body">
+            <h4 class="card-title"><%= quote.text %></h4>
+            <p class="card-text"><%= quote.description %><br />[<a href="/quotes/<%=quote.id %>">Read full quote</a>]</p>
+        </div>
+    </div>
+
+<% end %>
+<% end %>
+):
+1:    <h3>Your Quotes</h3>
+2:    <hr />
+3:    
+4:    <% if @quotes.empty?
+5:    
+6:    <% else %>
+7:        <% @quotes.each do |quote_categories| %>
+8:        <div class="card bg-body-tertiary" style="margin-bottom:10px">
+9:            <div class="card-body">
+10:                <h4 class="card-title"><%= quote.text %></h4>
+11:                <p class="card-text"><%= quote.description %><br />[<a href="/quotes/<%=quote.id %>">Read full quote</a>]</p>
+12:            </div>
+13:        </div>
+14:    
+15:    <% end %>
+16:    <% end %>
+  
+app/views/home/uquotes.html.erb:6: syntax error, unexpected '<'
+app/views/home/uquotes.html.erb:6: syntax error, unexpected '<'
+app/views/home/uquotes.html.erb:6: syntax error, unexpected '<'
+app/views/home/uquotes.html.erb:6: syntax error, unexpected '<'
+app/views/home/uquotes.html.erb:6: syntax error, unexpected '<'
+app/views/home/uquotes.html.erb:6: syntax error, unexpected '<'
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 18:17:08 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1162)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1250)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1856)
+
+
+  
+ActionView::Template::Error (undefined method `empty' for nil:NilClass):
+    1: <h3>Your Quotes</h3>
+    2: <hr />
+    3: 
+    4: <% if @quotes.empty %>
+    5: 
+    6: <% else %>
+    7:     <% @quotes.each do |quote_categories| %>
+  
+app/views/home/uquotes.html.erb:4
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 18:17:15 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1159)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1247)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1854)
+
+
+  
+ActionView::Template::Error (undefined method `empty?' for nil:NilClass):
+    1: <h3>Your Quotes</h3>
+    2: <hr />
+    3: 
+    4: <% if @quotes.empty? %>
+    5: 
+    6: <% else %>
+    7:     <% @quotes.each do |quote_categories| %>
+  
+app/views/home/uquotes.html.erb:4
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:19:21 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 101)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 1510)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4355)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.1ms | Allocations: 4667)
+
+
+Started GET "/about" for 127.0.0.1 at 2023-10-15 18:19:25 +0800
+  
+ActionController::RoutingError (uninitialized constant AboutController):
+  
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:19:34 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3340)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 3596)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:20:03 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 1569)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4403)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.1ms | Allocations: 5229)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:20:20 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 1511)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4306)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.1ms | Allocations: 5120)
+
+
+Started GET "/root_path" for 127.0.0.1 at 2023-10-15 18:20:21 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/root_path"):
+  
+Started GET "/root_path" for 127.0.0.1 at 2023-10-15 18:21:36 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/root_path"):
+  
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:21:39 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 1511)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 4364)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.1ms | Allocations: 5139)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:21:51 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 1511)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4324)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.1ms | Allocations: 5141)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:23:13 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3303)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 3561)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:23:25 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 1511)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 4327)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 5141)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:23:31 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 1508)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4324)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.1ms | Allocations: 5139)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:24:39 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 1508)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4306)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.1ms | Allocations: 5121)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:24:46 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 3300)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.1ms | Allocations: 3558)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:25:34 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.3ms | Allocations: 1569)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4391)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.1ms | Allocations: 5205)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:25:37 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 991)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 3360)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.1ms | Allocations: 3618)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:26:19 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 991)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3360)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 3617)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:26:33 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 110)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 1569)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 4412)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.1ms | Allocations: 5227)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:26:47 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 106)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 1569)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4419)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 5237)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:27:00 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 1568)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4393)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 5211)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:27:12 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 1509)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 4307)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 5122)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:31:47 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 295)
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 28.4ms | Allocations: 11003)
+  Rendered layout layouts/application.html.erb (Duration: 83.2ms | Allocations: 44397)
+Completed 200 OK in 102ms (Views: 82.1ms | ActiveRecord: 3.8ms | Allocations: 48407)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:31:55 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 1523)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 4351)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.1ms | Allocations: 5167)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:32:03 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 15.1ms | Allocations: 1519)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 4324)
+Completed 200 OK in 21ms (Views: 20.7ms | ActiveRecord: 0.1ms | Allocations: 5142)
+
+
+Started GET "/quotes/show" for 127.0.0.1 at 2023-10-15 18:32:10 +0800
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/quotes_controller.rb:63:in `set_quote'
+Completed 404 Not Found in 10ms (ActiveRecord: 0.5ms | Allocations: 2532)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Quote with 'id'=show):
+  
+app/controllers/quotes_controller.rb:63:in `set_quote'
+Started GET "/about" for 127.0.0.1 at 2023-10-15 18:32:14 +0800
+  
+ActionController::RoutingError (uninitialized constant AboutController):
+  
+Started GET "/userhome" for 127.0.0.1 at 2023-10-15 18:32:18 +0800
+Processing by HomeController#uindex as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uindex.html.erb within layouts/application
+  Rendered home/uindex.html.erb within layouts/application (Duration: 1.1ms | Allocations: 364)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 1511)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4424)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.1ms | Allocations: 5015)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:34:57 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 101)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3396)
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.1ms | Allocations: 3708)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:35:28 +0800
+  
+SyntaxError (/home/student/Documents/Assignments/myquote/app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+...:text).where(user_id: session [:user_id])
+...                              ^
+):
+  
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:37:16 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.5ms | Allocations: 5055)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 18342)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.7ms | Allocations: 18868)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:37:55 +0800
+  
+SyntaxError (/home/student/Documents/Assignments/myquote/app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+...:text).where(user_id: session [:user_id])
+...                              ^
+):
+  
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/home_controller.rb:6: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/" for 127.0.0.1 at 2023-10-15 18:38:14 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.3ms | Allocations: 5082)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 18366)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.7ms | Allocations: 18892)
+
+
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 18:42:21 +0800
+Processing by HomeController#uquotes as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 460)
+
+
+  
+NameError (uninitialized constant HomeController::Quotes):
+  
+app/controllers/home_controller.rb:6:in `uquotes'
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 18:42:49 +0800
+Processing by HomeController#uquotes as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 447)
+
+
+  
+NameError (uninitialized constant HomeController::Quotes):
+  
+app/controllers/home_controller.rb:6:in `uquotes'
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 18:43:09 +0800
+Processing by HomeController#uquotes as HTML
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 433)
+
+
+  
+NameError (uninitialized constant HomeController::Quotes):
+  
+app/controllers/home_controller.rb:6:in `uquotes'
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 19:01:17 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#uquotes as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1748)
+
+
+  
+NameError (uninitialized constant HomeController::Quotes):
+  
+app/controllers/home_controller.rb:6:in `uquotes'
+Started GET "/" for 127.0.0.1 at 2023-10-15 19:01:19 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 107)
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 27.2ms | Allocations: 11002)
+  Rendered layout layouts/application.html.erb (Duration: 80.9ms | Allocations: 43933)
+Completed 200 OK in 84ms (Views: 78.6ms | ActiveRecord: 3.8ms | Allocations: 44917)
+
+
+Started GET "/userhome" for 127.0.0.1 at 2023-10-15 19:01:23 +0800
+Processing by HomeController#uindex as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uindex.html.erb within layouts/application
+  Rendered home/uindex.html.erb within layouts/application (Duration: 4.8ms | Allocations: 359)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 966)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3492)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.1ms | Allocations: 3749)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 19:01:29 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 966)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3300)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 3558)
+
+
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 19:01:32 +0800
+Processing by HomeController#uquotes as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 449)
+
+
+  
+NameError (uninitialized constant HomeController::Quotes):
+  
+app/controllers/home_controller.rb:6:in `uquotes'
+Started GET "/" for 127.0.0.1 at 2023-10-15 19:01:36 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 955)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3355)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.1ms | Allocations: 3614)
+
+
+Started GET "/quotes/show" for 127.0.0.1 at 2023-10-15 19:01:38 +0800
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/quotes_controller.rb:63:in `set_quote'
+Completed 404 Not Found in 9ms (ActiveRecord: 0.5ms | Allocations: 2559)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Quote with 'id'=show):
+  
+app/controllers/quotes_controller.rb:63:in `set_quote'
+Started GET "/about" for 127.0.0.1 at 2023-10-15 19:01:41 +0800
+  
+ActionController::RoutingError (uninitialized constant AboutController):
+  
+Started GET "/" for 127.0.0.1 at 2023-10-15 19:01:59 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 1445)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 4286)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.1ms | Allocations: 5101)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 19:02:05 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 917)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 3274)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.1ms | Allocations: 3531)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 19:02:10 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 1443)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 4250)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 5063)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-10-15 19:02:25 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 535)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 19:02:25 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.5ms | Allocations: 3451)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 5828)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 6087)
+
+
+Started GET "/quotes/show" for 127.0.0.1 at 2023-10-15 19:02:30 +0800
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/quotes_controller.rb:63:in `set_quote'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 936)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Quote with 'id'=show):
+  
+app/controllers/quotes_controller.rb:63:in `set_quote'
+Started GET "/login" for 127.0.0.1 at 2023-10-15 19:02:59 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 931)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 4.7ms | Allocations: 3357)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 6563)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.1ms | Allocations: 7183)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2023-10-15 19:03:35 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 13.2ms | Allocations: 3492)
+  Rendered users/new.html.erb within layouts/application (Duration: 20.3ms | Allocations: 3801)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.7ms | Allocations: 3353)
+  Rendered layout layouts/application.html.erb (Duration: 28.8ms | Allocations: 9395)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.1ms | Allocations: 10154)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-10-15 19:04:05 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"fname"=>"Seton", "lname"=>"Webber", "email"=>"setonwebber@gmail.com", "password_digest"=>"[FILTERED]", "is_admin"=>"1", "status"=>"Active"}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:28:in `block in create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["fname", "Seton"], ["lname", "Webber"], ["email", "setonwebber@gmail.com"], ["password_digest", "[FILTERED]"], ["is_admin", 1], ["status", "Active"], ["created_at", "2023-10-15 11:04:05.560240"], ["updated_at", "2023-10-15 11:04:05.560240"]]
+  ↳ app/controllers/users_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (20.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:28:in `block in create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 27ms (ActiveRecord: 21.1ms | Allocations: 3700)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-10-15 19:04:05 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 594)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 9.2ms | Allocations: 3341)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 6100)
+Completed 200 OK in 13ms (Views: 12.9ms | ActiveRecord: 0.1ms | Allocations: 6359)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-10-15 19:04:15 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"setonwebber@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "setonwebber@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 1379)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for 127.0.0.1 at 2023-10-15 19:05:48 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 295)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 9.1ms | Allocations: 6655)
+  Rendered layout layouts/application.html.erb (Duration: 56.1ms | Allocations: 40206)
+Completed 200 OK in 64ms (Views: 58.0ms | ActiveRecord: 0.4ms | Allocations: 44215)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-10-15 19:05:56 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 963)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 15.2ms | Allocations: 3370)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 6576)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.1ms | Allocations: 7229)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-10-15 19:06:02 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"setonwebber@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "setonwebber@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms | Allocations: 7461)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:7:in `create'
+Started GET "/users/new" for 127.0.0.1 at 2023-10-15 19:07:42 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 4.9ms | Allocations: 3588)
+  Rendered users/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3897)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.0ms | Allocations: 3354)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 9526)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.2ms | Allocations: 10292)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2023-10-15 19:11:28 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.6ms | Allocations: 2987)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3289)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.4ms | Allocations: 3841)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 9659)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.1ms | Allocations: 10490)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Destroy (14.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for 127.0.0.1 at 2023-10-15 19:19:03 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 295)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 9.6ms | Allocations: 6656)
+  Rendered layout layouts/application.html.erb (Duration: 58.0ms | Allocations: 40678)
+Completed 200 OK in 66ms (Views: 60.1ms | ActiveRecord: 0.4ms | Allocations: 44685)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2023-10-15 19:19:06 +0800
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 5.2ms | Allocations: 4126)
+  Rendered users/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 4439)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 16.0ms | Allocations: 3352)
+  Rendered layout layouts/application.html.erb (Duration: 24.5ms | Allocations: 10033)
+Completed 200 OK in 33ms (Views: 25.4ms | ActiveRecord: 0.4ms | Allocations: 16372)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-10-15 19:19:15 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"fname"=>"Setn", "lname"=>"Webber", "email"=>"seton", "password"=>"[FILTERED]", "password_comfirmation"=>"[FILTERED]", "is_admin"=>"1", "status"=>"Active"}, "commit"=>"Create User"}
+[31mUnpermitted parameters: :password, :password_comfirmation. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fdc5c033488>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"fname"=>"Setn", "lname"=>"Webber", "email"=>"seton", "password"=>"[FILTERED]", "password_comfirmation"=>"[FILTERED]", "is_admin"=>"1", "status"=>"Active"}, "commit"=>"Create User", "controller"=>"users", "action"=>"create"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.1ms | Allocations: 2952)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 3041)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.2ms | Allocations: 3356)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 8570)
+Completed 422 Unprocessable Entity in 15ms (Views: 11.7ms | ActiveRecord: 0.2ms | Allocations: 10191)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-10-15 19:19:22 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"fname"=>"Setn", "lname"=>"Webber", "email"=>"seton", "password"=>"[FILTERED]", "password_comfirmation"=>"[FILTERED]", "is_admin"=>"1", "status"=>"Active"}, "commit"=>"Create User"}
+[31mUnpermitted parameters: :password, :password_comfirmation. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fdc3eb7fdc8>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"fname"=>"Setn", "lname"=>"Webber", "email"=>"seton", "password"=>"[FILTERED]", "password_comfirmation"=>"[FILTERED]", "is_admin"=>"1", "status"=>"Active"}, "commit"=>"Create User", "controller"=>"users", "action"=>"create"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.9ms | Allocations: 2847)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2936)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.3ms | Allocations: 3356)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 8450)
+Completed 422 Unprocessable Entity in 14ms (Views: 11.3ms | ActiveRecord: 0.1ms | Allocations: 9689)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-10-15 19:19:36 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"fname"=>"Setn", "lname"=>"Webber", "email"=>"seton", "password"=>"[FILTERED]", "password_comfirmation"=>"[FILTERED]", "is_admin"=>"1", "status"=>"Active"}, "commit"=>"Create User"}
+[31mUnpermitted parameters: :password, :password_comfirmation. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fdc5dec2278>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"fname"=>"Setn", "lname"=>"Webber", "email"=>"seton", "password"=>"[FILTERED]", "password_comfirmation"=>"[FILTERED]", "is_admin"=>"1", "status"=>"Active"}, "commit"=>"Create User", "controller"=>"users", "action"=>"create"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.1ms | Allocations: 2847)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2936)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.4ms | Allocations: 3351)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 8445)
+Completed 422 Unprocessable Entity in 14ms (Views: 11.7ms | ActiveRecord: 0.2ms | Allocations: 9670)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-10-15 19:23:09 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"fname"=>"Setn", "lname"=>"Webber", "email"=>"seton", "password"=>"[FILTERED]", "password_comfirmation"=>"[FILTERED]", "is_admin"=>"1", "status"=>"Active"}, "commit"=>"Create User"}
+[31mUnpermitted parameters: :password, :password_comfirmation. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fdc3e9c9d80>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"fname"=>"Setn", "lname"=>"Webber", "email"=>"seton", "password"=>"[FILTERED]", "password_comfirmation"=>"[FILTERED]", "is_admin"=>"1", "status"=>"Active"}, "commit"=>"Create User", "controller"=>"users", "action"=>"create"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 9.1ms | Allocations: 9874)
+  Rendered users/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 10146)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 10236)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 12042)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_with(model: user), data: {turbo: false} do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :fname, style: "display: block" %>
+    <%= form.text_field :fname %>
+  </div>
+
+  <div>
+    <%= form.label :lname, style: "display: block" %>
+    <%= form.text_field :lname %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.text_field :password %>
+  </div>
+
+  <div>
+    <%= form.label :password_comfirmation, style: "display: block" %>
+    <%= form.text_field :password_comfirmation %>
+  </div>
+
+  <div>
+    <%= form.label :is_admin, style: "display: block" %>
+    <%= form.check_box :is_admin %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+):
+1:    <%= form_with(model: user), data: {turbo: false} do |form| %>
+2:      <% if user.errors.any? %>
+3:        <div style="color: red">
+4:          <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+5:    
+6:          <ul>
+7:            <% user.errors.each do |error| %>
+8:              <li><%= error.full_message %></li>
+9:            <% end %>
+10:          </ul>
+11:        </div>
+12:      <% end %>
+13:    
+14:      <div>
+15:        <%= form.label :fname, style: "display: block" %>
+16:        <%= form.text_field :fname %>
+17:      </div>
+18:    
+19:      <div>
+20:        <%= form.label :lname, style: "display: block" %>
+21:        <%= form.text_field :lname %>
+22:      </div>
+23:    
+24:      <div>
+25:        <%= form.label :email, style: "display: block" %>
+26:        <%= form.text_field :email %>
+27:      </div>
+28:    
+29:      <div>
+30:        <%= form.label :password, style: "display: block" %>
+31:        <%= form.text_field :password %>
+32:      </div>
+33:    
+34:      <div>
+35:        <%= form.label :password_comfirmation, style: "display: block" %>
+36:        <%= form.text_field :password_comfirmation %>
+37:      </div>
+38:    
+39:      <div>
+40:        <%= form.label :is_admin, style: "display: block" %>
+41:        <%= form.check_box :is_admin %>
+42:      </div>
+43:    
+44:      <div>
+45:        <%= form.label :status, style: "display: block" %>
+46:        <%= form.text_field :status %>
+47:      </div>
+48:    
+49:      <div>
+50:        <%= form.submit %>
+51:      </div>
+52:    <% end %>
+  
+app/views/users/_form.html.erb:1: syntax error, unexpected label
+app/views/users/_form.html.erb:54: syntax error, unexpected `end'
+app/views/users/_form.html.erb:1: syntax error, unexpected label
+app/views/users/_form.html.erb:54: syntax error, unexpected `end'
+app/views/users/_form.html.erb:1: syntax error, unexpected label
+app/views/users/_form.html.erb:54: syntax error, unexpected `end'
+app/views/users/_form.html.erb:1: syntax error, unexpected label
+app/views/users/_form.html.erb:54: syntax error, unexpected `end'
+app/views/users/_form.html.erb:1: syntax error, unexpected label
+app/views/users/_form.html.erb:54: syntax error, unexpected `end'
+app/views/users/_form.html.erb:1: syntax error, unexpected label
+app/views/users/_form.html.erb:54: syntax error, unexpected `end'
+app/views/users/new.html.erb:3
+app/controllers/users_controller.rb:33:in `block (2 levels) in create'
+app/controllers/users_controller.rb:27:in `create'
+Started POST "/users" for 127.0.0.1 at 2023-10-15 19:23:29 +0800
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"fname"=>"Setn", "lname"=>"Webber", "email"=>"seton", "password"=>"[FILTERED]", "password_comfirmation"=>"[FILTERED]", "is_admin"=>"1", "status"=>"Active"}, "commit"=>"Create User"}
+[31mUnpermitted parameters: :password, :password_comfirmation. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007fdc3eac46b8>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"fname"=>"Setn", "lname"=>"Webber", "email"=>"seton", "password"=>"[FILTERED]", "password_comfirmation"=>"[FILTERED]", "is_admin"=>"1", "status"=>"Active"}, "commit"=>"Create User", "controller"=>"users", "action"=>"create"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.0ms | Allocations: 3444)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 3746)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.4ms | Allocations: 3853)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 10131)
+Completed 422 Unprocessable Entity in 16ms (Views: 13.9ms | ActiveRecord: 0.1ms | Allocations: 11913)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-10-15 19:25:16 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 906)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.3ms | Allocations: 3357)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 6505)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.1ms | Allocations: 7153)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-10-15 19:25:47 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"vinceb@myemail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "vinceb@myemail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/userhome
+Completed 302 Found in 225ms (ActiveRecord: 0.2ms | Allocations: 1722)
+
+
+Started GET "/userhome" for 127.0.0.1 at 2023-10-15 19:25:47 +0800
+Processing by HomeController#uindex as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uindex.html.erb within layouts/application
+  Rendered home/uindex.html.erb within layouts/application (Duration: 0.9ms | Allocations: 348)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 1790)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 4385)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.2ms | Allocations: 4894)
+
+
+Started GET "/userhome" for 127.0.0.1 at 2023-10-15 19:26:29 +0800
+Processing by HomeController#uindex as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uindex.html.erb within layouts/application
+  Rendered home/uindex.html.erb within layouts/application (Duration: 0.7ms | Allocations: 343)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 3.1ms | Allocations: 1443)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4335)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.1ms | Allocations: 4967)
+
+
+Started GET "/quotes/show" for 127.0.0.1 at 2023-10-15 19:26:31 +0800
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/quotes_controller.rb:63:in `set_quote'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.5ms | Allocations: 2502)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Quote with 'id'=show):
+  
+app/controllers/quotes_controller.rb:63:in `set_quote'
+Started GET "/quotes/new" for 127.0.0.1 at 2023-10-15 19:26:35 +0800
+Processing by QuotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/new.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 4.2ms | Allocations: 2712)
+  Rendered quotes/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 3019)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 935)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 6229)
+Completed 200 OK in 16ms (Views: 10.5ms | ActiveRecord: 0.1ms | Allocations: 10843)
+
+
+Started POST "/quotes" for 127.0.0.1 at 2023-10-15 19:29:11 +0800
+Processing by QuotesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "quote"=>{"pubyear"=>"1954-11-09", "quotetext"=>"The portrait is a remarkable example of modern art. It certainly combines force and candour.", "is_public"=>"1", "user_id"=>"1", "philosopher_id"=>"1"}, "commit"=>"Create Quote"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/quotes_controller.rb:27:in `block in create'
+  [1m[36mQuote Create (1.1ms)[0m  [1m[32mINSERT INTO "quotes" ("pubyear", "quotetext", "comment", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["pubyear", "1954-11-09"], ["quotetext", "The portrait is a remarkable example of modern art. It certainly combines force and candour."], ["comment", nil], ["is_public", 1], ["user_id", 1], ["philosopher_id", 1], ["created_at", "2023-10-15 11:29:11.403499"], ["updated_at", "2023-10-15 11:29:11.403499"]]
+  ↳ app/controllers/quotes_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/quotes_controller.rb:27:in `block in create'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.2ms | Allocations: 4623)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/quotes_controller.rb:27:in `block in create'
+app/controllers/quotes_controller.rb:26:in `create'
+Started GET "/philosopher/new" for 127.0.0.1 at 2023-10-15 19:31:20 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/philosopher/new"):
+  
+Started GET "/philosopher/new" for 127.0.0.1 at 2023-10-15 19:31:52 +0800
+  
+SyntaxError (/home/student/Documents/Assignments/myquote/config/routes.rb:19: unterminated string meets end of file
+/home/student/Documents/Assignments/myquote/config/routes.rb:19: syntax error, unexpected end-of-input, expecting `end' or dummy end):
+  
+config/routes.rb:19: unterminated string meets end of file
+config/routes.rb:19: syntax error, unexpected end-of-input, expecting `end' or dummy end
+config/routes.rb:19: unterminated string meets end of file
+config/routes.rb:19: syntax error, unexpected end-of-input, expecting `end' or dummy end
+config/routes.rb:19: unterminated string meets end of file
+config/routes.rb:19: syntax error, unexpected end-of-input, expecting `end' or dummy end
+Started GET "/philosopher/new" for 127.0.0.1 at 2023-10-15 19:32:02 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/philosopher/new"):
+  
+Started GET "/philosopher" for 127.0.0.1 at 2023-10-15 19:32:10 +0800
+  
+ActionController::RoutingError (uninitialized constant PhilosopoherController):
+  
+Started GET "/philosopher" for 127.0.0.1 at 2023-10-15 19:33:32 +0800
+  
+ActionController::RoutingError (uninitialized constant PhilosopoherController):
+  
+Started GET "/philosopher" for 127.0.0.1 at 2023-10-15 19:33:56 +0800
+  
+ActionController::RoutingError (uninitialized constant PhilosopherController):
+  
+Started GET "/philosopher" for 127.0.0.1 at 2023-10-15 19:34:13 +0800
+  
+ActionController::RoutingError (uninitialized constant PhilosopherController):
+  
+Started GET "/philosophers" for 127.0.0.1 at 2023-10-15 19:34:27 +0800
+Processing by PhilosophersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/index.html.erb within layouts/application
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers"[0m
+  ↳ app/views/philosophers/index.html.erb:6
+  Rendered philosophers/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1273)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.9ms | Allocations: 4634)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 18992)
+Completed 200 OK in 30ms (Views: 19.9ms | ActiveRecord: 0.9ms | Allocations: 20941)
+
+
+Started GET "/philosophers/new" for 127.0.0.1 at 2023-10-15 19:34:29 +0800
+Processing by PhilosophersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/new.html.erb within layouts/application
+  Rendered philosophers/_form.html.erb (Duration: 3.3ms | Allocations: 2328)
+  Rendered philosophers/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2623)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 5694)
+Completed 200 OK in 15ms (Views: 8.8ms | ActiveRecord: 0.6ms | Allocations: 9473)
+
+
+Started GET "/philosophers/new" for 127.0.0.1 at 2023-10-15 19:34:43 +0800
+Processing by PhilosophersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/new.html.erb within layouts/application
+  Rendered philosophers/_form.html.erb (Duration: 2.4ms | Allocations: 1781)
+  Rendered philosophers/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1885)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.0ms | Allocations: 4568)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 19522)
+Completed 200 OK in 25ms (Views: 19.3ms | ActiveRecord: 1.3ms | Allocations: 23281)
+
+
+Started POST "/philosophers" for 127.0.0.1 at 2023-10-15 19:38:45 +0800
+Processing by PhilosophersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "philosopher"=>{"fname"=>"William", "lname"=>"Wordsworth", "b_year"=>"1770-04-07", "d_year"=>"1850-04-23", "biography"=>"William Wordsworth (7 April 1770 – 23 April 1850) was an English Romantic poet who, with Samuel Taylor Coleridge, helped to launch the Romantic Age in English literature with their joint publication Lyrical Ballads (1798)."}, "commit"=>"Create Philosopher"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/philosophers_controller.rb:27:in `block in create'
+  [1m[36mPhilosopher Create (0.3ms)[0m  [1m[32mINSERT INTO "philosophers" ("fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["fname", "William"], ["lname", "Wordsworth"], ["b_year", "1770-04-07"], ["d_year", "1850-04-23"], ["biography", "William Wordsworth (7 April 1770 – 23 April 1850) was an English Romantic poet who, with Samuel Taylor Coleridge, helped to launch the Romantic Age in English literature with their joint publication Lyrical Ballads (1798)."], ["created_at", "2023-10-15 11:38:45.439629"], ["updated_at", "2023-10-15 11:38:45.439629"]]
+  ↳ app/controllers/philosophers_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (11.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/philosophers_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/philosophers/1
+Completed 302 Found in 16ms (ActiveRecord: 11.4ms | Allocations: 2774)
+
+
+Started GET "/philosophers/1" for 127.0.0.1 at 2023-10-15 19:38:45 +0800
+Processing by PhilosophersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPhilosopher Load (0.2ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers" WHERE "philosophers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/philosophers_controller.rb:63:in `set_philosopher'
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/show.html.erb within layouts/application
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.6ms | Allocations: 283)
+  Rendered philosophers/show.html.erb within layouts/application (Duration: 16.4ms | Allocations: 8641)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 11704)
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.3ms | Allocations: 13225)
+
+
+Started GET "/philosophers" for 127.0.0.1 at 2023-10-15 19:38:49 +0800
+Processing by PhilosophersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/index.html.erb within layouts/application
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers"[0m
+  ↳ app/views/philosophers/index.html.erb:6
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1025)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 4096)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 4367)
+
+
+Started GET "/philosophers/1" for 127.0.0.1 at 2023-10-15 19:38:52 +0800
+Processing by PhilosophersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers" WHERE "philosophers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/philosophers_controller.rb:63:in `set_philosopher'
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/show.html.erb within layouts/application
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 611)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3708)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.2ms | Allocations: 4465)
+
+
+Started GET "/philosophers/quotes/show" for 127.0.0.1 at 2023-10-15 19:40:27 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/philosophers/quotes/show"):
+  
+Started GET "/philosophers" for 127.0.0.1 at 2023-10-15 19:40:51 +0800
+Processing by PhilosophersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/index.html.erb within layouts/application
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers"[0m
+  ↳ app/views/philosophers/index.html.erb:6
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 944)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 4049)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.2ms | Allocations: 4317)
+
+
+Started GET "/philosophers/new" for 127.0.0.1 at 2023-10-15 19:40:54 +0800
+Processing by PhilosophersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/new.html.erb within layouts/application
+  Rendered philosophers/_form.html.erb (Duration: 2.2ms | Allocations: 1643)
+  Rendered philosophers/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1732)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 4.4ms | Allocations: 907)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 4804)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.1ms | Allocations: 5079)
+
+
+Started POST "/philosophers" for 127.0.0.1 at 2023-10-15 19:41:47 +0800
+Processing by PhilosophersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "philosopher"=>{"fname"=>"Samuel", "lname"=>"Taylor Coleridge", "b_year"=>"1772-10-21", "d_year"=>"1834-07-25", "biography"=>"Samuel Taylor Coleridge was an English poet, literary critic, philosopher, and theologian who, with his friend William Wordsworth, was a founder of the Romantic Movement in England and a member of the Lake Poets. He also shared volumes and collaborated with Charles Lamb, Robert Southey, and Charles Lloyd."}, "commit"=>"Create Philosopher"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/philosophers_controller.rb:27:in `block in create'
+  [1m[36mPhilosopher Create (0.3ms)[0m  [1m[32mINSERT INTO "philosophers" ("fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["fname", "Samuel"], ["lname", "Taylor Coleridge"], ["b_year", "1772-10-21"], ["d_year", "1834-07-25"], ["biography", "Samuel Taylor Coleridge was an English poet, literary critic, philosopher, and theologian who, with his friend William Wordsworth, was a founder of the Romantic Movement in England and a member of the Lake Poets. He also shared volumes and collaborated with Charles Lamb, Robert Southey, and Charles Lloyd."], ["created_at", "2023-10-15 11:41:47.184920"], ["updated_at", "2023-10-15 11:41:47.184920"]]
+  ↳ app/controllers/philosophers_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (14.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/philosophers_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/philosophers/2
+Completed 302 Found in 21ms (ActiveRecord: 15.3ms | Allocations: 2470)
+
+
+Started GET "/philosophers/2" for 127.0.0.1 at 2023-10-15 19:41:47 +0800
+Processing by PhilosophersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers" WHERE "philosophers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/philosophers_controller.rb:63:in `set_philosopher'
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/show.html.erb within layouts/application
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 42)
+  Rendered philosophers/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 636)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3733)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 4489)
+
+
+Started GET "/philosophers" for 127.0.0.1 at 2023-10-15 19:41:49 +0800
+Processing by PhilosophersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/index.html.erb within layouts/application
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers"[0m
+  ↳ app/views/philosophers/index.html.erb:6
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1122)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4195)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 4464)
+
+
+Started GET "/philosophers/new" for 127.0.0.1 at 2023-10-15 19:47:07 +0800
+Processing by PhilosophersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/new.html.erb within layouts/application
+  Rendered philosophers/_form.html.erb (Duration: 2.0ms | Allocations: 1640)
+  Rendered philosophers/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1729)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 1064)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4958)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.3ms | Allocations: 5232)
+
+
+Started POST "/philosophers" for 127.0.0.1 at 2023-10-15 19:47:39 +0800
+Processing by PhilosophersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "philosopher"=>{"fname"=>"Edgar", "lname"=>"Allan Poe", "b_year"=>"1809-01-19", "d_year"=>"1849-10-07", "biography"=>"Edgar Allan Poe was an American writer, poet, author, editor, and literary critic who is best known for his poetry and short stories, particularly his tales of mystery and the macabre. He is widely regarded as a central figure of Romanticism and Gothic fiction in the United States, and of American literature."}, "commit"=>"Create Philosopher"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/philosophers_controller.rb:27:in `block in create'
+  [1m[36mPhilosopher Create (0.3ms)[0m  [1m[32mINSERT INTO "philosophers" ("fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["fname", "Edgar"], ["lname", "Allan Poe"], ["b_year", "1809-01-19"], ["d_year", "1849-10-07"], ["biography", "Edgar Allan Poe was an American writer, poet, author, editor, and literary critic who is best known for his poetry and short stories, particularly his tales of mystery and the macabre. He is widely regarded as a central figure of Romanticism and Gothic fiction in the United States, and of American literature."], ["created_at", "2023-10-15 11:47:39.910621"], ["updated_at", "2023-10-15 11:47:39.910621"]]
+  ↳ app/controllers/philosophers_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (14.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/philosophers_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/philosophers/3
+Completed 302 Found in 19ms (ActiveRecord: 14.4ms | Allocations: 2481)
+
+
+Started GET "/philosophers/3" for 127.0.0.1 at 2023-10-15 19:47:40 +0800
+Processing by PhilosophersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPhilosopher Load (0.2ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers" WHERE "philosophers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/philosophers_controller.rb:63:in `set_philosopher'
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/show.html.erb within layouts/application
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 616)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3679)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.3ms | Allocations: 4471)
+
+
+Started GET "/philosophers" for 127.0.0.1 at 2023-10-15 19:47:45 +0800
+Processing by PhilosophersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/index.html.erb within layouts/application
+  [1m[36mPhilosopher Load (0.2ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers"[0m
+  ↳ app/views/philosophers/index.html.erb:6
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered philosophers/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1308)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 4379)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 4648)
+
+
+Started GET "/philosophers/new" for 127.0.0.1 at 2023-10-15 19:50:34 +0800
+Processing by PhilosophersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/new.html.erb within layouts/application
+  Rendered philosophers/_form.html.erb (Duration: 2.3ms | Allocations: 1634)
+  Rendered philosophers/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1723)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 907)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4795)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.1ms | Allocations: 5070)
+
+
+Started POST "/philosophers" for 127.0.0.1 at 2023-10-15 19:51:45 +0800
+Processing by PhilosophersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "philosopher"=>{"fname"=>"Albert", "lname"=>"Einstein", "b_year"=>"1879-03-14", "d_year"=>"1955-04-18", "biography"=>"Albert Einstein was a German-born theoretical physicist who is widely held to be one of the greatest and most influential scientists of all time. Best known for developing the theory of relativity, Einstein also made important contributions to quantum mechanics, and was thus a central figure in the revolutionary reshaping of the scientific understanding of nature that modern physics accomplished in the first decades of the twentieth century."}, "commit"=>"Create Philosopher"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/philosophers_controller.rb:27:in `block in create'
+  [1m[36mPhilosopher Create (0.3ms)[0m  [1m[32mINSERT INTO "philosophers" ("fname", "lname", "b_year", "d_year", "biography", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["fname", "Albert"], ["lname", "Einstein"], ["b_year", "1879-03-14"], ["d_year", "1955-04-18"], ["biography", "Albert Einstein was a German-born theoretical physicist who is widely held to be one of the greatest and most influential scientists of all time. Best known for developing the theory of relativity, Einstein also made important contributions to quantum mechanics, and was thus a central figure in the revolutionary reshaping of the scientific understanding of nature that modern physics accomplished in the first decades of the twentieth century."], ["created_at", "2023-10-15 11:51:45.047306"], ["updated_at", "2023-10-15 11:51:45.047306"]]
+  ↳ app/controllers/philosophers_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (11.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/philosophers_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/philosophers/4
+Completed 302 Found in 16ms (ActiveRecord: 12.0ms | Allocations: 2479)
+
+
+Started GET "/philosophers/4" for 127.0.0.1 at 2023-10-15 19:51:45 +0800
+Processing by PhilosophersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers" WHERE "philosophers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/philosophers_controller.rb:63:in `set_philosopher'
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/show.html.erb within layouts/application
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 631)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3695)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.2ms | Allocations: 4451)
+
+
+Started GET "/philosophers" for 127.0.0.1 at 2023-10-15 19:51:46 +0800
+Processing by PhilosophersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/index.html.erb within layouts/application
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers"[0m
+  ↳ app/views/philosophers/index.html.erb:6
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered philosophers/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1438)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 4522)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.2ms | Allocations: 4792)
+
+
+Started GET "/philosophers/1" for 127.0.0.1 at 2023-10-15 19:51:48 +0800
+Processing by PhilosophersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers" WHERE "philosophers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/philosophers_controller.rb:63:in `set_philosopher'
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/show.html.erb within layouts/application
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 596)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3682)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.2ms | Allocations: 4439)
+
+
+Started GET "/philosophers/1/edit" for 127.0.0.1 at 2023-10-15 19:51:49 +0800
+Processing by PhilosophersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers" WHERE "philosophers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/philosophers_controller.rb:63:in `set_philosopher'
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/edit.html.erb within layouts/application
+  Rendered philosophers/_form.html.erb (Duration: 2.4ms | Allocations: 1801)
+  Rendered philosophers/edit.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2093)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 5169)
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.2ms | Allocations: 5982)
+
+
+Started PATCH "/philosophers/1" for 127.0.0.1 at 2023-10-15 19:51:58 +0800
+Processing by PhilosophersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "philosopher"=>{"fname"=>"William", "lname"=>"Wordsworth", "b_year"=>"1770-04-07", "d_year"=>"1850-04-23", "biography"=>"William Wordsworth was an English Romantic poet who, with Samuel Taylor Coleridge, helped to launch the Romantic Age in English literature with their joint publication Lyrical Ballads (1798)."}, "commit"=>"Update Philosopher", "id"=>"1"}
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers" WHERE "philosophers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/philosophers_controller.rb:63:in `set_philosopher'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/philosophers_controller.rb:40:in `block in update'
+  [1m[36mPhilosopher Update (0.2ms)[0m  [1m[33mUPDATE "philosophers" SET "biography" = ?, "updated_at" = ? WHERE "philosophers"."id" = ?[0m  [["biography", "William Wordsworth was an English Romantic poet who, with Samuel Taylor Coleridge, helped to launch the Romantic Age in English literature with their joint publication Lyrical Ballads (1798)."], ["updated_at", "2023-10-15 11:51:58.323151"], ["id", 1]]
+  ↳ app/controllers/philosophers_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/philosophers_controller.rb:40:in `block in update'
+Redirected to http://localhost:3000/philosophers/1
+Completed 302 Found in 18ms (ActiveRecord: 11.8ms | Allocations: 3253)
+
+
+Started GET "/philosophers/1" for 127.0.0.1 at 2023-10-15 19:51:58 +0800
+Processing by PhilosophersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers" WHERE "philosophers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/philosophers_controller.rb:63:in `set_philosopher'
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/show.html.erb within layouts/application
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 629)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3692)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.2ms | Allocations: 4448)
+
+
+Started GET "/philosophers" for 127.0.0.1 at 2023-10-15 19:52:04 +0800
+Processing by PhilosophersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/index.html.erb within layouts/application
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers"[0m
+  ↳ app/views/philosophers/index.html.erb:6
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered philosophers/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1438)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 4509)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.2ms | Allocations: 4778)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("fname", "lname", "email", "password_digest", "is_admin", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["fname", "Seton"], ["lname", "Webber"], ["email", "setonwebber@gmail.com"], ["password_digest", "[FILTERED]"], ["is_admin", 0], ["status", "Active"], ["created_at", "2023-10-15 11:56:29.952733"], ["updated_at", "2023-10-15 11:56:29.952733"]]
+  [1m[36mTRANSACTION (17.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPhilosopher Load (0.1ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers"[0m
+Started GET "/philosophers" for 127.0.0.1 at 2023-10-15 19:57:37 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhilosophersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering philosophers/index.html.erb within layouts/application
+  [1m[36mPhilosopher Load (0.2ms)[0m  [1m[34mSELECT "philosophers".* FROM "philosophers"[0m
+  ↳ app/views/philosophers/index.html.erb:6
+  Rendered philosophers/_philosopher.html.erb (Duration: 1.0ms | Allocations: 338)
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 41)
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered philosophers/_philosopher.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered philosophers/index.html.erb within layouts/application (Duration: 22.9ms | Allocations: 8185)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 14.8ms | Allocations: 8363)
+  Rendered layout layouts/application.html.erb (Duration: 89.1ms | Allocations: 49748)
+Completed 200 OK in 113ms (Views: 90.9ms | ActiveRecord: 1.2ms | Allocations: 55574)
+
+
+Started GET "/quotes/new" for 127.0.0.1 at 2023-10-15 19:57:40 +0800
+Processing by QuotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/new.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 14.1ms | Allocations: 3608)
+  Rendered quotes/new.html.erb within layouts/application (Duration: 18.9ms | Allocations: 3917)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 13.3ms | Allocations: 930)
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 7090)
+Completed 200 OK in 47ms (Views: 36.2ms | ActiveRecord: 0.6ms | Allocations: 12590)
+
+
+Started POST "/quotes" for 127.0.0.1 at 2023-10-15 19:59:55 +0800
+Processing by QuotesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "quote"=>{"pubyear"=>"1933-05-10", "quotetext"=>"The creative principle [of science] resides in mathematics.", "is_public"=>"1", "user_id"=>"4", "philosopher_id"=>"4"}, "commit"=>"Create Quote"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/quotes_controller.rb:27:in `block in create'
+  [1m[36mQuote Create (0.3ms)[0m  [1m[32mINSERT INTO "quotes" ("pubyear", "quotetext", "comment", "is_public", "user_id", "philosopher_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["pubyear", "1933-05-10"], ["quotetext", "The creative principle [of science] resides in mathematics."], ["comment", nil], ["is_public", 1], ["user_id", 4], ["philosopher_id", 4], ["created_at", "2023-10-15 11:59:55.517212"], ["updated_at", "2023-10-15 11:59:55.517212"]]
+  ↳ app/controllers/quotes_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (26.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/quotes_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/quotes/1
+Completed 302 Found in 33ms (ActiveRecord: 26.8ms | Allocations: 4173)
+
+
+Started GET "/quotes/1" for 127.0.0.1 at 2023-10-15 19:59:55 +0800
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/quotes_controller.rb:63:in `set_quote'
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/show.html.erb within layouts/application
+  Rendered quotes/_quote.html.erb (Duration: 1.2ms | Allocations: 265)
+  Rendered quotes/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1204)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 906)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 4283)
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 0.3ms | Allocations: 5810)
+
+
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:00:00 +0800
+Processing by HomeController#uquotes as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 540)
+
+
+  
+NameError (uninitialized constant HomeController::Quotes):
+  
+app/controllers/home_controller.rb:6:in `uquotes'
+Started GET "/" for 127.0.0.1 at 2023-10-15 20:00:45 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 106)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 974)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3556)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.1ms | Allocations: 4178)
+
+
+Started GET "/quotes/show" for 127.0.0.1 at 2023-10-15 20:00:48 +0800
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/quotes_controller.rb:63:in `set_quote'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 953)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Quote with 'id'=show):
+  
+app/controllers/quotes_controller.rb:63:in `set_quote'
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:01:13 +0800
+Processing by HomeController#uquotes as HTML
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 447)
+
+
+  
+NameError (uninitialized constant HomeController::Quotes):
+  
+app/controllers/home_controller.rb:6:in `uquotes'
+Started GET "/quotes/new" for 127.0.0.1 at 2023-10-15 20:01:18 +0800
+Processing by QuotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/new.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 1.8ms | Allocations: 1706)
+  Rendered quotes/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1795)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 907)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4901)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.1ms | Allocations: 5177)
+
+
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:02:22 +0800
+Processing by HomeController#uquotes as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1005)
+
+
+  
+ArgumentError (The method .includes() must contain arguments.):
+  
+app/controllers/home_controller.rb:6:in `uquotes'
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:02:35 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/home/uquotes.html.erb:4
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 6.4ms | Allocations: 848)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.9ms | Allocations: 4716)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 18657)
+Completed 200 OK in 25ms (Views: 21.5ms | ActiveRecord: 1.2ms | Allocations: 20538)
+
+
+Started GET "/userhome" for 127.0.0.1 at 2023-10-15 20:02:47 +0800
+Processing by HomeController#uindex as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uindex.html.erb within layouts/application
+  Rendered home/uindex.html.erb within layouts/application (Duration: 7.9ms | Allocations: 333)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 917)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 3439)
+Completed 200 OK in 17ms (Views: 16.8ms | ActiveRecord: 0.1ms | Allocations: 3698)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2023-10-15 20:02:49 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 465)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 20:02:49 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.6ms | Allocations: 3439)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 5812)
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.2ms | Allocations: 6070)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-10-15 20:02:51 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 915)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.2ms | Allocations: 3357)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 6515)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.1ms | Allocations: 7135)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-10-15 20:03:00 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"setonwebber@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "setonwebber@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 372)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.1ms | Allocations: 3340)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 5869)
+Completed 200 OK in 232ms (Views: 8.9ms | ActiveRecord: 0.4ms | Allocations: 7062)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-10-15 20:03:08 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"setonwebber@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "setonwebber@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 372)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.1ms | Allocations: 3340)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 5869)
+Completed 200 OK in 232ms (Views: 8.9ms | ActiveRecord: 0.3ms | Allocations: 6878)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-10-15 20:03:16 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"setonwebber@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "setonwebber@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 372)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.9ms | Allocations: 3340)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 5869)
+Completed 200 OK in 234ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 6881)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+Started POST "/login" for 127.0.0.1 at 2023-10-15 20:04:00 +0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"setonwebber@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "setonwebber@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1041)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.2ms | Allocations: 3993)
+  Rendered layout layouts/application.html.erb (Duration: 51.8ms | Allocations: 37874)
+Completed 200 OK in 296ms (Views: 57.2ms | ActiveRecord: 0.8ms | Allocations: 51432)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-10-15 20:04:07 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"setonwebber@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "setonwebber@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/userhome
+Completed 302 Found in 223ms (ActiveRecord: 0.1ms | Allocations: 1023)
+
+
+Started GET "/userhome" for 127.0.0.1 at 2023-10-15 20:04:07 +0800
+Processing by HomeController#uindex as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uindex.html.erb within layouts/application
+  Rendered home/uindex.html.erb within layouts/application (Duration: 1.3ms | Allocations: 370)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 3.2ms | Allocations: 2291)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 5224)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.2ms | Allocations: 5939)
+
+
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:04:10 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/home/uquotes.html.erb:4
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 9.1ms | Allocations: 6270)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 6358)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.6ms | Allocations: 7745)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `quote' for #<ActionView::Base:0x0000000000d1b0>):
+    4: <% @quotes.each do |quote_categories| %>
+    5: <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:     <div class="card-body">
+    7:         <h4 class="card-title"><%= quote.text %></h4>
+    8:         <p class="card-text"><%= quote.description %><br />[<a href="/quotes/<%=quote.id %>">Read full quote</a>]</p>
+    9:     </div>
+   10: </div>
+  
+app/views/home/uquotes.html.erb:7
+app/views/home/uquotes.html.erb:4
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:04:22 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 0.4ms | Allocations: 949)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1038)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms | Allocations: 2845)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h3>Your Quotes</h3>
+    2: <hr />
+    3: 
+    4: <% @quotes.each do |quote_categories| %>
+    5: <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:     <div class="card-body">
+    7:         <h4 class="card-title"><%= quote.text %></h4>
+  
+app/views/home/uquotes.html.erb:4
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:04:41 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1069)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 1158)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms | Allocations: 3319)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h3>Your Quotes</h3>
+    2: <hr />
+    3: 
+    4: <% @quote.each do |quote_categories| %>
+    5: <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:     <div class="card-body">
+    7:         <h4 class="card-title"><%= quotes.text %></h4>
+  
+app/views/home/uquotes.html.erb:4
+Started DELETE "/logout" for 127.0.0.1 at 2023-10-15 20:04:48 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 458)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 20:04:48 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 107)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 8.9ms | Allocations: 4837)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 18547)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 1.1ms | Allocations: 19374)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-10-15 20:04:50 +0800
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 862)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 5.5ms | Allocations: 3357)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 6468)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.2ms | Allocations: 7087)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-10-15 20:04:56 +0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"setonwebber@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "setonwebber@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/userhome
+Completed 302 Found in 226ms (ActiveRecord: 0.4ms | Allocations: 3097)
+
+
+Started GET "/userhome" for 127.0.0.1 at 2023-10-15 20:04:57 +0800
+Processing by HomeController#uindex as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uindex.html.erb within layouts/application
+  Rendered home/uindex.html.erb within layouts/application (Duration: 0.8ms | Allocations: 365)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 1741)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4274)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 4534)
+
+
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:05:00 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/home/uquotes.html.erb:4
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 4.7ms | Allocations: 3731)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 3818)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 4325)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `quotes' for #<ActionView::Base:0x00000000019ac8>):
+    4: <% @quotes.each do |quote_categories| %>
+    5: <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:     <div class="card-body">
+    7:         <h4 class="card-title"><%= quotes.text %></h4>
+    8:         <p class="card-text"><%= quotes.description %><br />[<a href="/quotes/<%=quote.id %>">Read full quote</a>]</p>
+    9:     </div>
+   10: </div>
+  
+app/views/home/uquotes.html.erb:7
+app/views/home/uquotes.html.erb:4
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:05:47 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/home/uquotes.html.erb:4
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1723)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1811)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms | Allocations: 2822)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `quote' for #<ActionView::Base:0x00000000019e10>):
+    4: <% @quotes.each do |quote_categories| %>
+    5: <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:     <div class="card-body">
+    7:         <h4 class="card-title"><%= quote.quotetext %></h4>
+    8:         <p class="card-text"><%= quote.quotetext %><br />[<a href="/quotes/<%=quote.id %>">Read full quote</a>]</p>
+    9:     </div>
+   10: </div>
+  
+app/views/home/uquotes.html.erb:7
+app/views/home/uquotes.html.erb:4
+Started GET "/quotes/new" for 127.0.0.1 at 2023-10-15 20:05:55 +0800
+Processing by QuotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/new.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 6.3ms | Allocations: 3538)
+  Rendered quotes/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 3850)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 1418)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 7811)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.1ms | Allocations: 8560)
+
+
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:06:26 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/home/uquotes.html.erb:4
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1720)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1808)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 2826)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `quotes' for #<ActionView::Base:0x0000000001a220>):
+    4: <% @quotes.each do |quote_categories| %>
+    5: <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:     <div class="card-body">
+    7:         <h4 class="card-title"><%= quotes.quotetext %></h4>
+    8:         <p class="card-text"><%= quotes.quotetext %><br />[<a href="/quotes/<%=quote.id %>">Read full quote</a>]</p>
+    9:     </div>
+   10: </div>
+  
+app/views/home/uquotes.html.erb:7
+app/views/home/uquotes.html.erb:4
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:07:09 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/home/uquotes.html.erb:4
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1721)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 1809)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms | Allocations: 2824)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `quote' for #<ActionView::Base:0x0000000001a5b8>):
+    4: <% @quotes.each do |quote_categories| %>
+    5: <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:     <div class="card-body">
+    7:         <h4 class="card-title"><%= quote.quotetext %></h4>
+    8:         #<p class="card-text"><%= quote.quotetext %><br />[<a href="/quotes/<%=quote.id %>">Read full quote</a>]</p>
+    9:     </div>
+   10: </div>
+  
+app/views/home/uquotes.html.erb:7
+app/views/home/uquotes.html.erb:4
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:07:41 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/home/uquotes.html.erb:4
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1720)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 1808)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms | Allocations: 2823)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `quotes' for #<ActionView::Base:0x0000000001a928>):
+    4: <% @quotes.each do |quote_categories| %>
+    5: <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:     <div class="card-body">
+    7:         <h4 class="card-title"><%= quotes.quotetext %></h4>
+    8:         #<p class="card-text"><%= quote.quotetext %><br />[<a href="/quotes/<%=quote.id %>">Read full quote</a>]</p>
+    9:     </div>
+   10: </div>
+  
+app/views/home/uquotes.html.erb:7
+app/views/home/uquotes.html.erb:4
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:08:11 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/home/uquotes.html.erb:4
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1980)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2068)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms | Allocations: 3086)
+
+
+  
+ActionView::Template::Error (undefined method `quotetext' for #<ActiveRecord::Relation [#<Quote id: 1, pubyear: "1933-05-10", quotetext: "The creative principle [of science] resides in mat...", comment: nil, is_public: true, user_id: 4, philosopher_id: 4, created_at: "2023-10-15 11:59:55.517212000 +0000", updated_at: "2023-10-15 11:59:55.517212000 +0000">]>):
+    4: <% @quotes.each do |quote_categories| %>
+    5: <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:     <div class="card-body">
+    7:         <h4 class="card-title"><%= @quotes.quotetext %></h4>
+    8:         #<p class="card-text"><%= quote.quotetext %><br />[<a href="/quotes/<%=quote.id %>">Read full quote</a>]</p>
+    9:     </div>
+   10: </div>
+  
+app/views/home/uquotes.html.erb:7
+app/views/home/uquotes.html.erb:4
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:12:44 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/home/uquotes.html.erb:4
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1700)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1788)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 2829)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `quotetext' for #<ActionView::Base:0x0000000001af40>):
+    4: <% @quotes.each do |quote_categories| %>
+    5: <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:     <div class="card-body">
+    7:          <% @quotes[quotetext]%>
+    8:     </div>
+    9: </div>
+   10: <% end %>
+  
+app/views/home/uquotes.html.erb:7
+app/views/home/uquotes.html.erb:4
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:12:53 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/home/uquotes.html.erb:4
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1710)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1798)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms | Allocations: 2818)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    4: <% @quotes.each do |quote_categories| %>
+    5: <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:     <div class="card-body">
+    7:          <% @quotes[:quotetext]%>
+    8:     </div>
+    9: </div>
+   10: <% end %>
+  
+app/views/home/uquotes.html.erb:7
+app/views/home/uquotes.html.erb:4
+Started GET "/your-quotes" for 127.0.0.1 at 2023-10-15 20:12:58 +0800
+Processing by HomeController#uquotes as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/uquotes.html.erb within layouts/application
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/views/home/uquotes.html.erb:4
+  Rendered home/uquotes.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1695)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1783)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 2799)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `quotes' for #<ActionView::Base:0x0000000001b558>):
+    4: <% @quotes.each do |quote_categories| %>
+    5: <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    6:     <div class="card-body">
+    7:          <% quotes[:quotetext]%>
+    8:     </div>
+    9: </div>
+   10: <% end %>
+  
+app/views/home/uquotes.html.erb:7
+app/views/home/uquotes.html.erb:4
+Started GET "/quotes/new" for 127.0.0.1 at 2023-10-15 20:14:12 +0800
+Processing by QuotesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/new.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 7.1ms | Allocations: 2258)
+  Rendered quotes/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 2563)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 6.7ms | Allocations: 5061)
+  Rendered layout layouts/application.html.erb (Duration: 26.4ms | Allocations: 20969)
+Completed 200 OK in 33ms (Views: 27.3ms | ActiveRecord: 1.1ms | Allocations: 24966)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 20:14:15 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 104)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 962)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3501)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.1ms | Allocations: 4144)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 20:14:48 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 105)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 1443)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2223)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.1ms | Allocations: 3040)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-15 20:15:27 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 917)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1345)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.1ms | Allocations: 1603)
+
+

@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">MyQuote Home</a>
-
+    <a class="navbar-brand">myQuote</a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,42 +10,50 @@
         <li class="nav-item">
         <%= link_to "Home", root_path, class:"nav-link" %>
         </li>
+
         <li class="nav-item">
-        <li><a class="nav-link" href="#">Search</a></li>
-        </li>
-        <li class="nav-item">
-        <%= link_to "About", about_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-        <li><a class="nav-link" href="#">Sign Up</a></li>
-        </li>
-        <li class="nav-item">
-        <li><a class="nav-link" href="#">Sign In</a></li>
-        </li>
-        <li class="nav-item">
-        <li><a class="nav-link" href="#">Sign Out</a></li>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            User
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">My Account</a></li>
-            <li><a class="dropdown-item" href="#">My Recipes</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Add New Recipe</a></li>
-          </ul>
+        <li><a class="nav-link" href="quotes/show">Quotes</a></li>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Admin
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Admin Home</a></li>
-            <li><a class="dropdown-item" href="#">Manage Users</a></li>
-          </ul>
-        </li>
+        <% if !logged_in? %>
+          <li class="nav-item">
+          <li><%= link_to 'Sign Up', new_user_path, class:"nav-link" %></li>
+          </li>
+        <% end %>
+
+        <% if !logged_in? %>
+          <li class="nav-item">
+          <li><%= link_to 'Sign In', login_path, class:"nav-link" %></li>
+          </li>
+        <% end %>
+
+        <% if logged_in? %>
+          <li class="nav-item">
+          <%= button_to "Sign Out", logout_path, method: :delete, class:"btn btn-link nav-link"%>
+          </li>
+        <% end %>
+
+        <% if logged_in? && !is_administrator? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"aria-expanded="false">User</a>
+            <ul class="dropdown-menu">
+              <%= link_to "My Account", userhome_path, class:"dropdown-item" %>
+              <%= link_to "My Quotes", your_quotes_path, class:"dropdown-item" %>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="quotes/new">Add New Quotes</a></li>
+            </ul>
+          </li>
+        <% end %>
+
+        <% if logged_in? && is_administrator? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"aria-expanded="false">Admin</a>
+            <ul class="dropdown-menu">
+              <%= link_to "Admin Home", admin_path, class:"dropdown-item" %>
+              <li><%= link_to 'Manage Users', users_path, class:"dropdown-item" %></li>
+            </ul>
+          </li>
+        <% end %>
 
         <!--
         <li class="nav-item">

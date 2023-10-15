@@ -1,0 +1,10 @@
+<h3>Your Quotes</h3>
+<hr />
+
+<% @quotes.each do |quote_categories| %>
+<div class="card bg-body-tertiary" style="margin-bottom:10px">
+    <div class="card-body">
+         <% quotes[:quotetext]%>
+    </div>
+</div>
+<% end %>
