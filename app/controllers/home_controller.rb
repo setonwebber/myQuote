@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
   def index
-    @philosopher = Philosopher.joins(:quote).merge(Quote.order(:created_at))
+    @quotes = Philosopher.joins(:quote).merge(Quote.order(:created_at))
   end
 
   def uquotes
-    @quotes = Quote.where(user_id: session[:user_id])
+    @quotes = Philosopher.joins(:quote).merge(Quote.where(user_id: current_user.id))
   end
 
   def uindex 

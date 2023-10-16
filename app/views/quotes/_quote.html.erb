@@ -1,27 +1,13 @@
-<div id="<%= dom_id quote %>">
-  <p>
-    <strong>Pubyear:</strong>
-    <%= quote.pubyear %>
-  </p>
+<% @quotes.each do |quote| %>
+    <div class="card bg-body-tertiary" style="margin-bottom:10px">
+        <div class="card-body">
+            <h3 class="card-title"><%= quote.fname + " " + quote.lname %></h3>
 
-  <p>
-    <strong>Quotetext:</strong>
-    <%= quote.quotetext %>
-  </p>
+            <% quote.quote.each do |quote_d| %>
+                <p class="card-text"><%= quote_d.quotetext %><br /><a href="/quotes/<%=quote_d.id %>">View Details</a></p>
+            <% end %>
 
-  <p>
-    <strong>Is public:</strong>
-    <%= quote.is_public %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= quote.user_id %>
-  </p>
-
-  <p>
-    <strong>Philosopher:</strong>
-    <%= quote.philosopher_id %>
-  </p>
-
-</div>
+        </div>
+        
+    </div>
+<% end %>
