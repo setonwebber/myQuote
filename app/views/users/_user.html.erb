@@ -1,4 +1,5 @@
 <div id="<%= dom_id user %>">
+
   <p>
     <strong>Fname:</strong>
     <%= user.fname %>
@@ -15,8 +16,7 @@
   </p>
 
   <p>
-    <strong>Password digest:</strong>
-    <%= user.password_digest %>
+    <strong>Current Password: </strong><span class="text-danger">ENCRYPTED</span>
   </p>
 
   <p>
