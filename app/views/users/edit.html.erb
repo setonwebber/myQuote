@@ -1,15 +1,18 @@
 <div style="padding-top: 10px;">
-<h1>Update User Details</h1>
+<% if logged_in? && is_administrator? %>
+  <h1>Update User Details</h1>
+  <% else %>
+  <h1>Update Your Details</h1>
+  <% end %>
 </div>
-<br>
+<hr />
 
 <%= render "form", user: @user %>
-
-
 <% if logged_in? && is_administrator? %>
-<br>
 <div style="padding-top: 10px;">
+<div>
   <%= link_to "Show this user", @user %> |
   <%= link_to "Back to users", users_path %>
+</div>
 </div>
 <% end %>

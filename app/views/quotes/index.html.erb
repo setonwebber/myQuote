@@ -1,14 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Quotes</h1>
-
+<hr/>
 <div id="quotes">
-  <% @quotes.each do |quote| %>
-    <%= render quote %>
-    <p>
-      <%= link_to "Show this quote", quote %>
-    </p>
-  <% end %>
+  <%= render partial: 'quotes/quote' %>
 </div>
-
-<%= link_to "New quote", new_quote_path %>

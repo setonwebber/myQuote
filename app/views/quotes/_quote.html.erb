@@ -1,13 +1,8 @@
 <% @quotes.each do |quote| %>
     <div class="card bg-body-tertiary" style="margin-bottom:10px">
         <div class="card-body">
-            <h3 class="card-title"><%= quote.fname + " " + quote.lname %></h3>
-
-            <% quote.quote.each do |quote_d| %>
-                <p class="card-text"><%= quote_d.quotetext %><br /><a href="/quotes/<%=quote_d.id %>">View Details</a></p>
-            <% end %>
-
+            <h3 class="card-title"><%= quote.philosopher.fname + " " + quote.philosopher.lname %></h3>
+            <p class="card-text"><%= quote.quotetext %><br /><a href="/quotes/<%=quote.id %>">View Details</a></p>
         </div>
-        
     </div>
 <% end %>

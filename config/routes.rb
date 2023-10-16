@@ -7,13 +7,14 @@ Rails.application.routes.draw do
   get '/userhome', to: 'home#uindex'
   get '/your-quotes', to: 'home#uquotes'
   get '/search', to: 'search#index'
-  get '/upload', to: 'quote#new'
+  get '/upload', to: 'quotes#new'
+  get '/signup', to: 'users#new'
   
   root 'home#index'
 
-  resources :quote_categories
-  resources :categories
+  # resources :quote_categories
+  # resources :categories
   resources :quotes
-  resources :philosophers
+  # resources :philosophers
   resources :users
 end

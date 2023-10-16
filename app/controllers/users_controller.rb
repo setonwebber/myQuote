@@ -4,7 +4,15 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    # if there is a logged in user and that user is the administrator
+    if logged_in? && is_administrator?
+      @users = User.all 
+    elsif logged_in? && !is_administrator?
+      redirect_to userhome_path
+    else
+      flash[:error] = "You are not authorised to access this resource"
+      redirect_to login_path
+    end
   end
 
   # GET /users/1 or /users/1.json
@@ -39,7 +47,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
+        format.html { redirect_to userhome_path, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }

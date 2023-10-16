@@ -1,10 +1,38 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @quote %>
-
 <div>
-  <%= link_to "Edit this quote", edit_quote_path(@quote) %> |
-  <%= link_to "Back to quotes", quotes_path %>
+  <h1>Quote</h1>
+  <hr />
 
-  <%= button_to "Destroy this quote", @quote, method: :delete %>
+  <h3>
+    <%= @quote.philosopher.full_name %>
+
+    <% if @quote.pubyear.present? %>
+      | <%= @quote.pubyear.to_s %>
+    <% end %>
+  </h3>
+
+  <p><%= @quote.quotetext %> </p>
+
+  <p>Comment: <%= @quote.comment.presence || 'No comment.' %> <br>
+
+  Posted by <%= @quote.user.full_name %> | Privacy Status: 
+        <% if @quote.is_public %>
+          <span>Public</span>
+        <% else %>
+          <span>Private</span>
+        <% end %><br>
+  </p>
+
+</div>
+<% if logged_in?%>
+  <% if @quote.user_id == current_user.id || is_administrator?%>
+    <div>
+      <%= link_to "Edit this quote", edit_quote_path(@quote) %> |
+      <%= link_to "Back to quotes", quotes_path %>
+      <div style="padding-top: 20px;">
+        <%= button_to "Delete this Quote", @quote, method: :delete, class: 'btn btn-danger' %>
+      </div>
+  <% end%>
+<% end%>
 </div>

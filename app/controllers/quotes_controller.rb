@@ -1,5 +1,6 @@
 class QuotesController < ApplicationController
   before_action :set_quote, only: %i[ show edit update destroy ]
+  before_action :require_login, except: [:index, :show]
 
   # GET /quotes or /quotes.json
   def index
@@ -13,6 +14,7 @@ class QuotesController < ApplicationController
   # GET /quotes/new
   def new
     @quote = Quote.new
+    @quote.quote_categories.build
   end
 
   # GET /quotes/1/edit
@@ -22,7 +24,7 @@ class QuotesController < ApplicationController
   # POST /quotes or /quotes.json
   def create
     @quote = Quote.new(quote_params)
-
+  
     respond_to do |format|
       if @quote.save
         format.html { redirect_to quote_url(@quote), notice: "Quote was successfully created." }
@@ -32,7 +34,7 @@ class QuotesController < ApplicationController
         format.json { render json: @quote.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end  
 
   # PATCH/PUT /quotes/1 or /quotes/1.json
   def update
@@ -65,6 +67,6 @@ class QuotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def quote_params
-      params.require(:quote).permit(:pubyear, :quotetext, :is_public, :user_id, :philosopher_id)
+      params.require(:quote).permit(:pubyear, :quotetext, :comment, :is_public, :user_id, :philosopher_id, quote_categories_attributes: [:id, :category_id])
     end
 end

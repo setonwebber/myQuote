@@ -1,4 +1,4 @@
 class QuoteCategory < ApplicationRecord
-  belongs_to :quote
   belongs_to :category
+  belongs_to :quote
 end
