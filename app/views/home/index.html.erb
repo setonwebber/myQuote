@@ -1,5 +1,7 @@
+<!-- This is the home page, or the root_path. This is the first page that you're brought to when entering in the URL of the website. Here we display the 5 most recent quotes, as well as a welcome -->
 <h1>Welcome to myQuote</h1>
 <hr />
 <h3>Recently Added Quotes</h3>
 
+<!-- Renders the 5 most recent text we gathered in the quotes_controller.rb and displays them with the _quote partial in views/quotes/ -->
 <%= render partial: 'quotes/quote' %>

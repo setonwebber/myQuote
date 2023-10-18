@@ -14,11 +14,13 @@ class QuotesController < ApplicationController
   # GET /quotes/new
   def new
     @quote = Quote.new
+    # Builds the 8 category selection fields.
     8.times {@quote.quote_categories.build}
   end
 
   # GET /quotes/1/edit
   def edit
+     # Builds the 8 category selection fields.
     8.times {@quote.quote_categories.build}
   end
 

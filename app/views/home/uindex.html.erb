@@ -1,26 +1,31 @@
+<!-- This page is the user landing page, or the userhome page. Here we just show the details of the user, as well as an option to edit account details at the bottom -->
 <p style="color: green"><%= notice %></p>
 <h1>Account Details</h1>
 <hr />
 <p>
+  <!-- Displays user's full name -->
   <div class="mb-3">
     <label class="form-label"><strong>Name:</strong></label>
     <div><%= current_user.full_name %></div>
   </div>
 
-
+  <!-- Displays user's email address -->
   <div class="mb-3">
     <label class="form-label"><strong>Email:</strong></label>
     <div><%= current_user.email %></div>
   </div>
 
+  <!-- Displays a placeholder for the password, as the password is encrypted and we cannot access it for security reasons. -->
   <div class="mb-3">
     <label class="form-label"><strong>Current Password:</strong></label>
     <span class="text-danger">ENCRYPTED</span>
   </div>
 
+  <!-- Displays user's account type, this is just a nicer way of saying if the user is an adminstrator or not by viewing the is_admin entry in the user.db -->
   <div class="mb-3">
     <label class="form-label"><strong>Account Type:</strong></label>
     <div>
+      <!-- Checks if the current user is an admin -->
       <% if current_user.is_admin %>
         <span>Administrator</span>
       <% else %>
@@ -29,6 +34,7 @@
     </div>
   </div>
 
+  <!-- Displays user's current status; active, suspended -->
   <div class="mb-3">
     <label class="form-label"><strong>Status:</strong></label>
     <div><%= current_user.status %></div>

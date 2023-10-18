@@ -1,14 +1,17 @@
+<!-- This page displays all the categories, this page is only accessible to adminsitrators. -->
 <p style="color: green"><%= notice %></p>
 
 <h1>Categories</h1>
+<!-- Gives option to add categories at the top of the page. -->
+<%= link_to "Add Category", new_category_path %>
+<hr />
 
 <div id="categories">
+   <!-- For each categories, display the categories. -->
   <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
+    <div class= "d-flex justify-content-between">
+    <!-- Render the category partial in views/category/_categories -->
+    <%= render category %> <%= link_to "Edit this category", edit_category_path(category) %>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New category", new_category_path %>

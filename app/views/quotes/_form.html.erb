@@ -1,3 +1,5 @@
+<!-- A partial that will display a form that is used to both create and update a quote.-->
+<!-- Check for errors. -->
 <% if quote.errors.any? %>
   <div class="alert alert-danger">
     <ul>
@@ -8,47 +10,54 @@
   </div>
 <% end %>
 
+<!-- Creates form -->
 <%= form_with(model: quote, local: true) do |f| %>
+  <!-- Hidden field that sets user_id to the current user, meaning that the user is attached to the quote as the user who uploaded it. -->
   <%= f.hidden_field :user_id, value: current_user.id %>
 
+  <!-- Display a form to enter the quote.-->
   <div class="form-group" style="padding-bottom: 10px;">
     <b>Quote
     <%= f.text_area :quotetext, placeholder: 'Text', class: 'form-control' %>
+      <!-- Display a form to enter an optional comment-->
     <%= f.text_field :comment, placeholder: 'Comment (Optional)', class: 'form-control' %></b>
   </div>
 
-
+  <!-- Display a form to enter the author, gives selection from current authors on the website. -->
   <div class="form-group" style="padding-bottom: 10px;">
     <b> Author
     <%= f.collection_select :philosopher_id, Philosopher.all, :id, :full_name, { include_blank: true }, class: "form-control" %> </b>
   </div>
 
+  <!-- Display a form to enter the quotes publication date, optional.-->
   <div class="form-group" style="padding-bottom: 10px;">
     <b>Publication Date
     <%= f.date_field :pubyear, class: 'form-control' %></b>
   </div>
 
-  <div class="form-group" style="padding-bottom: 10px;" id="categorys-container">
-  <b>Categories:</b>
+  <!-- Defines the container that will contain all the categories. -->
+  <div class="form-group" style="padding-bottom: 10px;" id="categories-container">
+    <b>Categories:</b>
+    <!-- For each of the current categories attached to the quote. -->
     <% @quote.quote_categories.each do |quote_category| %>
 
+      <!-- Fields for each quote category. -->
       <%= f.fields_for :quote_categories, quote_category do |ri| %>
         <div class="category-field row mb-2">
           <div class="col-auto">
-            <!-- The following lines create the dropdown list for selecting an category -->
+            <!-- Creates a dropdown list for selecting a category. -->
             <%= ri.select :category_id, Category.all.distinct.collect { |cat| [cat.category_name, cat.id] }, { include_blank: true }, class: "form-control d-inline-block" %>
           </div>
           <div class="col-auto align-self-end">
-            <!-- Here, I am creating a link that, when clicked, will delete the category/qty row it
-            accompanies; this will work with some basic JavaScript I’ll place at the end of the view-->
-            <%= link_to '[-] Remove this category', '#', class: 'remove-category',
-            style: "color: red; text-decoration: none;" %> <!-- Allow users to remove a field -->
+            <!-- Creates a link that, when clicked, will delete the category/quantity row it accompanies. -->
+            <%= link_to '[-] Remove this category', '#', class: 'remove-category', style: "color: red; text-decoration: none;" %> <!-- Allow users to remove a field -->
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
 
+  <!-- Display a form to enter the quotes privacy settings, will be a checkbox for a true or false value.-->
   <div class="form-check" style="padding-bottom: 10px;">
     <%= f.label :is_public do %>
     Public
@@ -56,6 +65,7 @@
     <% end %>
   </div>
 
+  <!-- Checks if quotes is being created. If it is, display submit. If the quote is being updated instead, display update. -->
   <% if @quote.new_record? %>
 	  <%= f.submit 'Submit', class: 'btn btn-primary' %>
   <% else %>
@@ -64,17 +74,27 @@
 <% end %>
 
 <script>
+  // Wait for the HTML document to be fully loaded and ready
   document.addEventListener('DOMContentLoaded', function() {
-    
-      document.addEventListener('click', function(e) {
 
+    // Add a click event listener to the entire document
+    document.addEventListener('click', function(e) {
+
+      // Check if the clicked element has the 'remove-category' class
       if (e.target && e.target.classList.contains('remove-category')) {
-      e.preventDefault();
-      const categoryFields = document.querySelectorAll('.category-field');
-       
-      if (categoryFields.length > 1) {
-        e.target.closest('.category-field').remove();
-      }
+
+        // Prevent the default behavior of the clicked link
+        e.preventDefault();
+
+        // Find all elements with the 'category-field' class
+        const categoryFields = document.querySelectorAll('.category-field');
+
+        // Ensure that there is more than one category field before removing
+        if (categoryFields.length > 1) {
+
+          // Remove the closest 'category-field' element to the clicked link
+          e.target.closest('.category-field').remove();
+        }
       }
     });
   });

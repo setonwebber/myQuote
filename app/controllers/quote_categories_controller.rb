@@ -1,5 +1,6 @@
 class QuoteCategoriesController < ApplicationController
   before_action :set_quote_category, only: %i[ show edit update destroy ]
+  before_action :require_admin
 
   # GET /quote_categories or /quote_categories.json
   def index

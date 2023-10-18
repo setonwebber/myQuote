@@ -1,10 +1,15 @@
-<h1>Editing category</h1>
+<!-- This view is displayed when editing a category. -->
+<h1>Editing Category</h1>
+<hr/>
 
+<!-- Renders the form in views/categories/_form with the current category selected. -->
 <%= render "form", category: @category %>
 
 <br>
 
 <div>
-  <%= link_to "Show this category", @category %> |
   <%= link_to "Back to categories", categories_path %>
 </div>
+<br>
+<br>
+<%= button_to "Delete this category", @category, method: :delete %>

@@ -1,21 +1,13 @@
+<!-- A partial that will display the philosophers in the same way. -->
+
 <div id="<%= dom_id philosopher %>">
+  <h3>
+    <%= philosopher.full_name %>
+  </h3>
   <p>
-    <strong>Fname:</strong>
-    <%= philosopher.fname %>
-  </p>
-
-  <p>
-    <strong>Lname:</strong>
-    <%= philosopher.lname %>
-  </p>
-
-  <p>
-    <strong>B year:</strong>
+    <strong>Birth year:</strong>
     <%= philosopher.b_year %>
-  </p>
-
-  <p>
-    <strong>D year:</strong>
+    <strong> D year:</strong>
     <%= philosopher.d_year %>
   </p>
 
@@ -23,5 +15,4 @@
     <strong>Biography:</strong>
     <%= philosopher.biography %>
   </p>
-
 </div>

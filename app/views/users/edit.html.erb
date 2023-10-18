@@ -1,4 +1,6 @@
+<!-- This view is displayed when editing a user. -->
 <div style="padding-top: 10px;">
+<!-- Checks if the user is an admin, if the user is an admin, display the heading text slightly different so it makes sense. -->
 <% if logged_in? && is_administrator? %>
   <h1>Update User Details</h1>
   <% else %>
@@ -7,8 +9,11 @@
 </div>
 <hr />
 
+
+<!-- Renders the form in views/users/_form with the current user selected. -->
 <%= render "form", user: @user %>
 
+<!-- Checks if the user is an admin, if the user is an admin, display the show user and back to users (user database) page. -->
 <% if logged_in? && is_administrator? %>
 <div style="padding-top: 10px;">
 <div>

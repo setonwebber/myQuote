@@ -1,14 +1,19 @@
+<!-- This page displays all the philosophers, this page is only accessible to adminsitrators. -->
 <p style="color: green"><%= notice %></p>
 
 <h1>Philosophers</h1>
+<!-- Gives option to add philosophers at the top of the page. -->
+<%= link_to "Add Philosopher", new_philosopher_path %>
+<hr />
 
 <div id="philosophers">
+  <!-- For each philosopher, display the philosopher. -->
   <% @philosophers.each do |philosopher| %>
+    <!-- Render the philosopher partial in views/philosopher/_philosopher -->
     <%= render philosopher %>
     <p>
-      <%= link_to "Show this philosopher", philosopher %>
+      <%= link_to "Edit this philosopher", edit_philosopher_path(philosopher) %>
     </p>
+    <br>
   <% end %>
 </div>
-
-<%= link_to "New philosopher", new_philosopher_path %>

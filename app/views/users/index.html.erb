@@ -1,8 +1,10 @@
+<!-- This page displays all the philosophers, this page is only accessible to adminsitrators. -->
 <p style="color: green"><%= notice %></p>
 
 <h3>Manage Users</h3>
 
 <div id="users">
+  <!-- For each users, display the user details. -->
   <% @users.each do |user| %>
   <div class="user card mb-4">
     <div class="card-body">
@@ -15,5 +17,3 @@
   </div>
     <% end %>
 </div>
-<!-- removed the equals sign from the line immediately below -->
-<% link_to "New user", new_user_path %>

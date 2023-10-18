@@ -1,4 +1,6 @@
+<!-- A partial that will display a form that is used to both create and update a category.-->
 <%= form_with(model: philosopher) do |form| %>
+<!-- Check for errors. -->
   <% if philosopher.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(philosopher.errors.count, "error") %> prohibited this philosopher from being saved:</h2>
@@ -11,32 +13,41 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :fname, style: "display: block" %>
-    <%= form.text_field :fname %>
+  <!-- Display a form to enter the philosopher's first name.-->
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.label "First Name", style: "display: block" %>
+    <%= form.text_field :fname, placeholder: 'First Name', class: 'form-control'%>
   </div>
 
-  <div>
-    <%= form.label :lname, style: "display: block" %>
-    <%= form.text_field :lname %>
+  <!-- Display a form to enter the philosopher's last name.-->
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.label "Last Name", style: "display: block" %>
+    <%= form.text_field :lname, placeholder: 'Last Name', class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :b_year, style: "display: block" %>
-    <%= form.date_field :b_year %>
+  <!-- Display a form to enter the philosopher's birth year.-->
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.label "Birth Year", style: "display: block" %>
+    <%= form.date_field :b_year, class: 'form-control'  %>
   </div>
 
-  <div>
-    <%= form.label :d_year, style: "display: block" %>
-    <%= form.date_field :d_year %>
+  <!-- Display a form to enter the philosopher's death year.-->
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.label "Death Year", style: "display: block" %>
+    <%= form.date_field :d_year, class: 'form-control'  %>
   </div>
 
-  <div>
-    <%= form.label :biography, style: "display: block" %>
-    <%= form.text_area :biography %>
+  <!-- Display a form to enter the philosopher's biography.-->
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.label :Biography, style: "display: block" %>
+    <%= form.text_area :biography, placeholder: 'Biography', class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <!-- Checks if philosopher is being created. If it is, display submit. If the philosopher is being updated instead, display update. -->
+  <% if @philosopher.new_record? %>
+	  <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  <% else %>
+    <%= form.submit 'Update', class: 'btn btn-primary' %>
+  <% end %>
 <% end %>
+

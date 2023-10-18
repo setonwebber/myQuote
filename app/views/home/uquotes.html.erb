@@ -1,11 +1,18 @@
+<!-- 
+    This page contains all the user's quotes. 
+    Here we grab our quotes that we defined in the home_controller in def uquotes. 
+    We then display it using the same partial we used in the home page.
+-->
 <h3>Your Quotes</h3>
 <hr />
 
-
+<!-- Checks if the user has any quotes. -->
 <% if @quotes.present? %>
-    <%= render partial: 'quotes/quote' %>
+  <!-- Renders with the _quote partial in views/quotes/ -->
+  <%= render partial: 'quotes/quote' %>
 <% else %>
 <div>
+  <!-- Displays fail message if user doesn't have any quotes, and gives an option to upload some. -->
   You have no quotes.
   <%= link_to "Upload", upload_path %>
 </div>

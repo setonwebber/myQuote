@@ -1,4 +1,6 @@
+<!-- A partial that will display a form that is used to both create and update a user.-->
 <%= form_with(model: user) do |form| %>
+<!-- Check for errors. -->
   <% if user.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,22 +13,27 @@
     </div>
   <% end %>
 
+  <!-- Display a form to enter the user's first name.-->
   <div class="form-group" style="padding-bottom: 10px;">
-    <%= form.text_field :fname, placeholder: 'First Name', class: 'form-control', readonly: (logged_in? && !is_administrator?) %>
+    <%= form.text_field :fname, placeholder: 'First Name', class: 'form-control'%>
   </div>
 
+  <!-- Display a form to enter the user's last name.-->
   <div class="form-group" style="padding-bottom: 10px;">
-    <%= form.text_field :lname, placeholder: 'Last Name', class: 'form-control', readonly: (logged_in? && !is_administrator?) %>
+    <%= form.text_field :lname, placeholder: 'Last Name', class: 'form-control'%>
   </div>
 
+  <!-- Display a form to enter the user's email.-->
   <div class="form-group" style="padding-bottom: 10px;">
-    <%= form.text_field :email, placeholder: 'Email Address', class: 'form-control', readonly: (logged_in? && !is_administrator?) %>
+    <%= form.text_field :email, placeholder: 'Email Address', class: 'form-control'%>
   </div>
 
+  <!-- Display a form to enter the user's password. Is a password_field so it remains hidden.-->
   <div class="form-group" style="padding-bottom: 10px;">
-    <%= form.password_field :password, placeholder: user.password_digest.present? ? 'Password set' : 'Choose a strong password', class: 'form-control', readonly: (logged_in? && !is_administrator?) %>
+    <%= form.password_field :password, placeholder: user.password_digest.present? ? 'Password set' : 'Choose a strong password', class: 'form-control' %>
   </div>
 
+  <!-- Display a form to change the user's admin status. Setting is only visible to admins and can only be changed via admins.-->
   <div class="form-group" style="padding-bottom: 10px;">
   <% if logged_in? && is_administrator? %>
     <%= form.label :is_admin do %>
@@ -38,6 +45,7 @@
   <% end %>
   </div>
 
+  <!-- Display a form to change the user's status. Setting is only visible to admins and can only be changed via admins. -->
   <div class="form-group" style="padding-bottom: 10px;">
   <% if logged_in? && is_administrator? %>
     <%= form.select :status, ['Active', 'Suspended', 'Banned'], {}, class: 'form-control' %>
@@ -48,6 +56,8 @@
   <% end %>
   </div>
 
+  <!-- Checks if user is being created, it does it differently here as we can check if the user is logged in or not, but .new_record? wouldve worked the same.
+  If it is, display submit. If the user is being updated instead, display update. -->
   <div>
   <% if logged_in? %>
 	  <%= form.submit 'Update', class: 'btn btn-primary' %>

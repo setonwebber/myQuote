@@ -1,49 +1,71 @@
 <p style="color: green"><%= notice %></p>
-
+<!-- Page to display the current quote. Does not run through a partial as I want it to display in a nice way.-->
 <div>
   <h1>Quote</h1>
   <hr />
 
-  <h3>
-    <%= @quote.philosopher.full_name %>
+  <!-- The top section, dedicated to showing the quote details.-->
+  <div>
+    <!-- The heading to display the authors full name, and the publication date if it is supplied. -->
+    <h3>
+      <%= @quote.philosopher.full_name %>
 
-    <% if @quote.pubyear.present? %>
-      | <%= @quote.pubyear.to_s %>
-    <% end %>
-  </h3>
+      <% if @quote.pubyear.present? %>
+        | <%= @quote.pubyear.to_s %>
+      <% end %>
+    </h3>
 
-  <p><%= @quote.quotetext %> </p>
+    <!-- The quote itself. -->
+    <p><%= @quote.quotetext %> </p>
 
-  <p>
-    <b>Comment</b>: <%= @quote.comment.presence || 'n/a' %> <br>
+    <!-- A body, dedicated to displaying the comment, user name, and categories. -->
+    <p>
+      <!-- Checks if comment exists, display "n/a" if it is not supplied. -->
+      <b>Comment</b>: <%= @quote.comment.presence || 'n/a' %> <br>
 
-    <b>Posted by </b><%= @quote.user.full_name %><br>
-    <b>Categories: </b>
-      <% categories = @quote.categories.map(&:category_name).join(', ') %>
-      <%= categories %><b> Privacy Status: </b>
+      <!-- Shows "posted by" the user's full name. -->
+      <b>Posted by </b><%= @quote.user.full_name %><br>
+
+      <!-- Shows the categories. -->
+      <b>Categories: </b>
+      <!-- Joins all quotes by ", "; this ensures a nice looking list with no extra commas. -->
+        <% categories = @quote.categories.map(&:category_name).join(', ') %>
+        <%= categories %> <br>
+      <!-- Displays the privace status. -->
+      <b> Privacy Status: </b>
       <% if @quote.is_public %>
         <span>Public</span>
       <% else %>
         <span>Private</span>
       <% end %><br>
-  </p>
-
-  <hr />
-  
-  <div class="form-group" style="padding-bottom: 10px;">
-  <h4>About Author:</h4>
-  <div class= "d-flex justify-content-between">
-  <h5><%= @quote.philosopher.full_name %></h5>
-  Born: <%= @quote.philosopher.b_year %> Died: <%= @quote.philosopher.d_year || 'n/a' %>
+    </p>
   </div>
+  <hr />
+
+  <!-- The bottom section, dedicated to showing the author's details.-->
+  <div class="form-group" style="padding-bottom: 10px;">
+    <h4>About Author:</h4>
+
+    <!-- The heading to display the authors full name, and the birth year - death year. Show "n/a" if death_year is unsupplied -->
+    <div class= "d-flex justify-content-between">
+      <h5><%= @quote.philosopher.full_name %></h5>
+      
+      <p>Born: <%= @quote.philosopher.b_year %> Died: 
+      <%= @quote.philosopher.d_year || 'n/a' %> </p>
+  </div>
+  <!-- Display the philosopher's biography. -->
   <%= @quote.philosopher.biography %>
 
 </div>
+
+<div>
+<%= link_to "Back to quotes", quotes_path %> 
+<!-- Check if user is logged in. -->
 <% if logged_in?%>
+  <!-- Check if the current_user is the one who posted the quote OR the current_user is administrator. -->
   <% if @quote.user_id == current_user.id || is_administrator?%>
-    <div>
-      <%= link_to "Edit this quote", edit_quote_path(@quote) %> |
-      <%= link_to "Back to quotes", quotes_path %>
+    <!-- Give access to edit and delete the quote -->
+      | <%= link_to "Edit this quote", edit_quote_path(@quote) %>
       <div style="padding-top: 20px;">
         <%= button_to "Delete this Quote", @quote, method: :delete, class: 'btn btn-danger' %>
       </div>

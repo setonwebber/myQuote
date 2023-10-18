@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     if logged_in? && is_administrator?
       @users = User.all 
     elsif logged_in? && !is_administrator?
+      # User is not an administrator. Sent back to userhome.
       redirect_to userhome_path
     else
       flash[:error] = "You are not authorised to access this resource"

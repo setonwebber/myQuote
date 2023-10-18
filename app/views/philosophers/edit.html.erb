@@ -1,10 +1,16 @@
-<h1>Editing philosopher</h1>
+<!-- This view is displayed when editing a philosopher. -->
+<h1>Update Philosopher</h1>
+<hr />
 
+
+<!-- Renders the form in views/philosophers/_form with the current philosopher selected. -->
 <%= render "form", philosopher: @philosopher %>
 
 <br>
 
 <div>
-  <%= link_to "Show this philosopher", @philosopher %> |
   <%= link_to "Back to philosophers", philosophers_path %>
 </div>
+<br>
+<br>
+<%= button_to "Delete this philosopher", @philosopher, method: :delete %>
