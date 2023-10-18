@@ -14,17 +14,18 @@ class QuotesController < ApplicationController
   # GET /quotes/new
   def new
     @quote = Quote.new
-    @quote.quote_categories.build
+    8.times {@quote.quote_categories.build}
   end
 
   # GET /quotes/1/edit
   def edit
+    8.times {@quote.quote_categories.build}
   end
 
   # POST /quotes or /quotes.json
   def create
     @quote = Quote.new(quote_params)
-  
+
     respond_to do |format|
       if @quote.save
         format.html { redirect_to quote_url(@quote), notice: "Quote was successfully created." }
@@ -49,6 +50,7 @@ class QuotesController < ApplicationController
     end
   end
 
+
   # DELETE /quotes/1 or /quotes/1.json
   def destroy
     @quote.destroy
@@ -64,9 +66,10 @@ class QuotesController < ApplicationController
     def set_quote
       @quote = Quote.find(params[:id])
     end
-
+    
     # Only allow a list of trusted parameters through.
     def quote_params
-      params.require(:quote).permit(:pubyear, :quotetext, :comment, :is_public, :user_id, :philosopher_id, quote_categories_attributes: [:id, :category_id])
+      params.require(:quote).permit(:pubyear, :quotetext, :comment, :is_public, :user_id, :philosopher_id,
+       quote_categories_attributes: [:id, :category_id])
     end
 end

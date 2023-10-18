@@ -1,8 +1,17 @@
 <% @quotes.each do |quote| %>
     <div class="card bg-body-tertiary" style="margin-bottom:10px">
         <div class="card-body">
-            <h3 class="card-title"><%= quote.philosopher.fname + " " + quote.philosopher.lname %></h3>
-            <p class="card-text"><%= quote.quotetext %><br /><a href="/quotes/<%=quote.id %>">View Details</a></p>
+            <div class= "d-flex justify-content-between">
+                <h2 class="card-title"><%= quote.philosopher.full_name %></h2>
+                <h6> <%= quote.pubyear%> </h6>
+            </div>
+            <p class="card-text"><%= quote.quotetext %></p>
+            <div class= "d-flex justify-content-between">
+                <a href="/quotes/<%=quote.id %>">View Details</a>
+                <% categories = quote.categories.map(&:category_name).join(', ') %>
+                <p><%= categories %> | Posted by <%= quote.user.full_name %></p>
+            </div>
+            
         </div>
     </div>
 <% end %>

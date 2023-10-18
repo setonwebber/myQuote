@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
+    puts "Create run."
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
+    puts "Update run."
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to userhome_path, notice: "User was successfully updated." }

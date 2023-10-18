@@ -1,2 +1,14 @@
 <p style="color: green"><%= notice %></p>
 <h3>Administrator Landing Page</h3>
+<hr/>
+
+<div class="form-group" style="padding-bottom: 10px;">
+    <h4>Website Statistics:</h4>
+    <p>
+        Registered Users: <%= User.count %> | <%= link_to "Manage Users", users_path %><br>
+        Quotes: <%= Quote.count %> | <%= link_to "Manage Quotes", quotes_path %><br>
+        Authors: <%= Philosopher.count %> | <%= link_to "Manage Authors", philosophers_path %><br>
+        Categories: <%= Category.count %> | <%= link_to "Manage Categories", categories_path %><br>
+    </p>
+    
+</div>

@@ -14,15 +14,29 @@
 
   <p><%= @quote.quotetext %> </p>
 
-  <p>Comment: <%= @quote.comment.presence || 'No comment.' %> <br>
+  <p>
+    <b>Comment</b>: <%= @quote.comment.presence || 'n/a' %> <br>
 
-  Posted by <%= @quote.user.full_name %> | Privacy Status: 
-        <% if @quote.is_public %>
-          <span>Public</span>
-        <% else %>
-          <span>Private</span>
-        <% end %><br>
+    <b>Posted by </b><%= @quote.user.full_name %><br>
+    <b>Categories: </b>
+      <% categories = @quote.categories.map(&:category_name).join(', ') %>
+      <%= categories %><b> Privacy Status: </b>
+      <% if @quote.is_public %>
+        <span>Public</span>
+      <% else %>
+        <span>Private</span>
+      <% end %><br>
   </p>
+
+  <hr />
+  
+  <div class="form-group" style="padding-bottom: 10px;">
+  <h4>About Author:</h4>
+  <div class= "d-flex justify-content-between">
+  <h5><%= @quote.philosopher.full_name %></h5>
+  Born: <%= @quote.philosopher.b_year %> Died: <%= @quote.philosopher.d_year || 'n/a' %>
+  </div>
+  <%= @quote.philosopher.biography %>
 
 </div>
 <% if logged_in?%>

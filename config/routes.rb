@@ -9,12 +9,13 @@ Rails.application.routes.draw do
   get '/search', to: 'search#index'
   get '/upload', to: 'quotes#new'
   get '/signup', to: 'users#new'
-  
+  get '/quotes', to: 'quotes#index'
+
   root 'home#index'
 
   # resources :quote_categories
-  # resources :categories
+  resources :categories
   resources :quotes
-  # resources :philosophers
+  resources :philosophers
   resources :users
 end

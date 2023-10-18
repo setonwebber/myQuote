@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="form-group" style="padding-bottom: 10px;">
-    <%= form.text_field :fname, placeholder: 'First Name', class: 'form-control', readonly: (logged_in? && is_administrator?) %>
+    <%= form.text_field :fname, placeholder: 'First Name', class: 'form-control', readonly: (logged_in? && !is_administrator?) %>
   </div>
 
   <div class="form-group" style="padding-bottom: 10px;">
-    <%= form.text_field :lname, placeholder: 'Last Name', class: 'form-control', readonly: (logged_in? && is_administrator?) %>
+    <%= form.text_field :lname, placeholder: 'Last Name', class: 'form-control', readonly: (logged_in? && !is_administrator?) %>
   </div>
 
   <div class="form-group" style="padding-bottom: 10px;">
-    <%= form.text_field :email, placeholder: 'Email Address', class: 'form-control', readonly: (logged_in? && is_administrator?) %>
+    <%= form.text_field :email, placeholder: 'Email Address', class: 'form-control', readonly: (logged_in? && !is_administrator?) %>
   </div>
 
   <div class="form-group" style="padding-bottom: 10px;">
-    <%= form.password_field :password, placeholder: user.password_digest.present? ? 'Password set' : 'Choose a strong password', class: 'form-control', readonly: (logged_in? && is_administrator?) %>
+    <%= form.password_field :password, placeholder: user.password_digest.present? ? 'Password set' : 'Choose a strong password', class: 'form-control', readonly: (logged_in? && !is_administrator?) %>
   </div>
 
   <div class="form-group" style="padding-bottom: 10px;">
